@@ -62,7 +62,7 @@ const CONTENT = {
     heading: "a collective built on care, not scale",
     body: "Pohonch started from a belief that therapy shouldn't be a luxury — and that finding the right person should feel possible, not overwhelming.",
     stats: [
-      { number: "6", label: "therapists" },
+      { number: "7", label: "therapists" },
       { number: "6", label: "languages" },
       { number: "₹500", label: "starting fee" }
     ],
@@ -73,10 +73,10 @@ const CONTENT = {
     pullQuote: "We don't need to be perfect to belong. That's a lovely therapeutic stance.",
     // Founder strip — leave empty strings if not yet ready
     founder: {
-      initials: "P",
-      name: "[Founder Name]",
+      initials: "S",
+      name: "Sindhu",
       role: "founder · pohonch",
-      bio: "A short note from the founder — warm, personal, unhurried. About why Pohonch exists and who they hope finds their way here."
+      bio: "Pohonch started in February 2022. It began as one person's attempt to make ethical, quality mental health care feel possible — not like a luxury, not like a maze. Sindhu is still here, still practicing, still building."
     }
   },
 
@@ -205,6 +205,25 @@ const CONTENT = {
       tags: ["feminist therapy", "REBT", "narrative", "identity", "inclusive practice", "humanistic"],
       bio: "MSc in Applied Clinical Psychology, also counselling psychologist at a college. Takes an eclectic feminist approach rooted in inclusion — deep commitment to consent and confidentiality at every step. Cares about making care genuinely accessible: 45-minute sessions, sliding scale, honest about what she can and can't do. Loves science, music, nature, art, furniture, and animals.",
       metaItems: ["200+ hours", "English · Gujarati · Hindi", "Google Meet · 45 min"],
+      active: true
+    },
+    {
+      id: "sindhu",
+      name: "Sindhu",
+      pronouns: "they/them",
+      location: "Pune · online & in-person",
+      fee: "₹1300–1600",
+      feeUnit: "/ session",
+      feeNote: "₹1850 in-person · ₹3000 abroad",
+      days: "Tue · Wed · Thu · Sat",
+      daysNote: "20 slots/week · 5/day",
+      avatarInitials: "S",
+      avatarBg: "#F0EDE4",
+      avatarColor: "#5C5035",
+      imagePath: "sindhu.jpg",
+      tags: ["complex trauma", "intimate partner violence", "grief", "anxiety", "depression", "self-harm", "anti-caste", "intersectional feminist"],
+      bio: "Sindhu (chosen name) is the founder of Pohonch — which began in February 2022 as their attempt to make ethical, quality mental health care accessible. They/them. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches. Offers online and in-person sessions.",
+      metaItems: ["3200+ hours · Masters Clinical Psychology, Mumbai University 2021", "English · Marathi · Hindi", "Online (Google Meet) + in-person Pune"],
       active: true
     },
     {
