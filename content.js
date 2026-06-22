@@ -237,7 +237,7 @@ const CONTENT = {
       id: "shraddha-litoriya",
       name: "Shraddha Litoriya",
       pronouns: "she/her",
-      location: "Madhya Pradesh · online",
+      location: "Gwalior · online",
       fee: "₹1200–1600",
       feeUnit: "/ session",
       feeNote: "45 or 60 min",
