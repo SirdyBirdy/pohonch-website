@@ -17,10 +17,6 @@ const CONTENT = {
   // ─── INQUIRY FORM ────────────────────────────────────────────
   inquiryFormUrl: "https://forms.gle/soFwpjkmvZtoqw766",
 
-  // ─── PROFILES PATH ───────────────────────────────────────────
-  // PDFs live at profiles/firstname-lastname.pdf on GitHub
-  profilesPath: "Profiles",
-
   // ─── SOCIAL ──────────────────────────────────────────────────
   instagramUrl: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl",
   privacyUrl: "", // fill in when ready
@@ -95,7 +91,6 @@ const CONTENT = {
   },
 
   // ─── UI STRINGS ──────────────────────────────────────────────
-  // Button labels, card notes, quote band, footer blurb
   ui: {
     navCta: "Begin",
     howCta: "Find your therapist",
@@ -137,6 +132,7 @@ const CONTENT = {
   },
 
   // ─── THERAPISTS ──────────────────────────────────────────────
+  // profileUrl: link to the therapist's Canva profile page
   therapists: [
     {
       id: "sindhu",
@@ -152,6 +148,7 @@ const CONTENT = {
       avatarBg: "#F0EDE4",
       avatarColor: "#5C5035",
       imagePath: "sindhu.jpg",
+      profileUrl: "https://canva.link/t7a1zusx9zi7g76",
       tags: ["complex trauma", "intimate partner violence", "grief", "anxiety", "depression", "self-harm", "anti-caste", "intersectional feminist"],
       bio: "Sindhu (chosen name) is the founder of Pohonch, which began in February 2022 as their attempt to make ethical, quality mental health care accessible. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches.",
       metaItems: ["3200+ hrs · Masters Clinical Psychology, Mumbai University 2021", "English · Marathi · Hindi", "Online (Google Meet) + in-person Pune"],
@@ -171,6 +168,7 @@ const CONTENT = {
       avatarBg: "#E1F5EE",
       avatarColor: "#085041",
       imagePath: "aishwarya-temgire.jpg",
+      profileUrl: "https://canva.link/oipou7l89k9elgu",
       tags: ["chronic illness", "trauma & PTSD", "neurodivergence", "immigration anxiety", "anxiety", "grief", "IFS", "somatic"],
       bio: "Raised in the Gulf for 18 years, now based in Pune. She knows what it means to not quite belong anywhere, and to slowly, imperfectly build a sense of self anyway. Aishwarya is a neurodivergent therapist and SA survivor who brings IFS parts-based work, expressive arts, and somatic approaches. She works from a liberation-focused lens and believes healing happens in relationship, with ourselves, with others, with our bodies.",
       metaItems: ["~1000 hrs counselling", "English · Hindi · Marathi", "online only"],
@@ -190,6 +188,7 @@ const CONTENT = {
       avatarBg: "#FBEAF0",
       avatarColor: "#72243E",
       imagePath: "juhi.jpg",
+      profileUrl: "https://canva.link/escnug4p5ey5xzo",
       tags: ["identity & self", "relationships", "trauma", "emotional burnout", "existential", "attachment", "schema therapy"],
       bio: "MSc in Clinical Psychology from Christ University. Juhi identifies with the wounded healer, what she's carried personally doesn't sit separate from her work, it sharpens it. She draws from Transactional Analysis, Schema Therapy, Gestalt, ACT and Somatic approaches. Her therapy is like a road trip: destination agreed on, but detours are welcome. 3 in 8 slots are concessional, intentionally.",
       metaItems: ["15–20 slots/week", "English · Hindi · Kutchi", "online only"],
@@ -209,6 +208,7 @@ const CONTENT = {
       avatarBg: "#E8F4D9",
       avatarColor: "#2A5C0A",
       imagePath: "pravalika-buddha.jpg",
+      profileUrl: "https://canva.link/pkdoe95rqlbe7lo",
       tags: ["cPTSD", "queer folx", "neurodivergent", "grief", "dissociation", "anxiety", "decolonised lens"],
       bio: "Anti-capitalist, neurodivergent, queer therapist from an OBC background. Pravalika identifies as Anti-caste and is a survivor of abuse with lived experience of CPTSD and chronic depression. MSc from IIPR. Her approach is relational and non-directive, she relies on forming deep relationships to create corrective experiences. She brings community, art and plants into her therapy room.",
       metaItems: ["400+ hrs · 20 hrs group therapy", "Telugu · Hindi · English", "Online & offline · HSR Bangalore"],
@@ -228,6 +228,7 @@ const CONTENT = {
       avatarBg: "#EAF3DE",
       avatarColor: "#27500A",
       imagePath: "preksha-porwal.jpg",
+      profileUrl: "https://canva.link/xu18uds6sby2z4x",
       tags: ["grief & loss", "identity", "neurodivergence", "family dynamics", "expressive arts", "children & adolescents"],
       bio: "Counselling psychologist and Expressive Arts Facilitator, based in Pune. Works with children, adolescents, and young adults across schools, NGOs, and private practice. Integrative, person-centred and psychodynamic at the core, with art, movement, play and writing woven in. She'll probably invite creative work at some point. Always an invitation. Never an expectation.",
       metaItems: ["MSc Counselling Psychology 2023", "English · Hindi", "Google Meet"],
@@ -247,6 +248,7 @@ const CONTENT = {
       avatarBg: "#E1F5EE",
       avatarColor: "#0F6E56",
       imagePath: "shraddha-litoriya.jpg",
+      profileUrl: "https://canva.link/fxfpqhnsyvd4igz",
       tags: ["CPTSD", "chronic pain", "narcissistic abuse", "somatic", "therapeutic movement", "neurodivergent HSP"],
       bio: "Neurodivergent, Highly Sensitive Person, and deeply anti-discriminatory. Shraddha lives with CPTSD, fibromyalgia, and migraines, and these experiences have made her a more grounded therapist, not despite them but through them. Eclectic, trauma-informed, drawing from narrative, somatic, movement-based, and dynamic frameworks. Also offers short-term therapeutic movement sessions for chronic pain.",
       metaItems: ["3 years experience", "Hindi · English", "Google Meet"],
@@ -266,6 +268,7 @@ const CONTENT = {
       avatarBg: "#EEEDFE",
       avatarColor: "#3C3489",
       imagePath: "vipasha.jpg",
+      profileUrl: "https://canva.link/02yuuw55hay8kb9",
       tags: ["feminist therapy", "REBT", "narrative", "identity", "inclusive practice", "humanistic"],
       bio: "MSc in Applied Clinical Psychology, also counselling psychologist at a college. Takes an eclectic feminist approach rooted in inclusion, with a deep commitment to consent and confidentiality at every step. Cares about making care genuinely accessible: 45-minute sessions, sliding scale, honest about what she can and can't do. Loves science, music, nature, art, furniture, and animals.",
       metaItems: ["200+ hours", "English · Gujarati · Hindi", "Google Meet · 45 min"],
