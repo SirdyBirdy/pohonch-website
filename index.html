@@ -89,6 +89,22 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .step-b{font-size:13px;color:var(--ink-s);line-height:1.75;margin:0}
 .how-cta{display:flex;justify-content:center;margin-top:36px}
 
+/* ─── CONSULT STRIP ─────────────────────────────────────────── */
+.consult-strip{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--paper-2);border:1.5px solid var(--rule);border-radius:20px;padding:44px 52px;margin-bottom:0;position:relative;overflow:hidden}
+.consult-strip::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 560px 320px at 92% 50%,rgba(106,125,84,.12),transparent 70%);pointer-events:none}
+.consult-strip::after{content:"";position:absolute;left:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(184,103,74,.08),transparent 70%);pointer-events:none}
+.consult-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss-d);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.consult-kicker::before{content:"";width:20px;height:1px;background:var(--moss);display:inline-block}
+.consult-h{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(22px,2.8vw,32px);line-height:1.15;margin:0 0 14px;letter-spacing:-.018em}
+.consult-h em{font-style:italic;color:var(--moss-d);font-variation-settings:"SOFT" 80}
+.consult-body{font-size:15px;color:var(--ink-s);max-width:52ch;line-height:1.7;margin:0}
+.consult-pill{background:var(--ink);color:var(--paper);border-radius:999px;padding:6px 18px;font-size:13px;display:inline-flex;align-items:center;gap:6px;margin-top:20px}
+.consult-note{font-size:13px;color:var(--stone);margin-top:8px}
+.consult-right{text-align:center;flex-shrink:0;min-width:160px}
+.consult-price{font-family:"Fraunces",serif;font-size:72px;font-weight:300;color:var(--moss-d);line-height:1;letter-spacing:-.03em}
+.consult-price sup{font-size:30px;vertical-align:super}
+.consult-unit{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:6px}
+
 .team-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:36px;flex-wrap:wrap}
 .team-head h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(32px,4vw,48px);margin:0;letter-spacing:-.022em;line-height:1.05}
 .team-head h2 em{font-style:italic;color:var(--moss-d)}
@@ -165,11 +181,14 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   .hero-art{height:280px}
   .nav-links{display:none}
   h1{font-size:52px}
+  .consult-strip{grid-template-columns:1fr;gap:28px;padding:32px 28px}
+  .consult-right{text-align:left}
 }
 @media(max-width:540px){
   .wrap{padding:0 20px}
   .values{grid-template-columns:1fr}
   .quote-band{padding:36px 22px}
+  .consult-strip{padding:28px 22px}
 }
 </style>
 </head>
@@ -343,7 +362,19 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   </a>
 </div>
 
-<div class="divider" id="therapists">
+<!-- ─── CONSULT STRIP ──────────────────────────────────────── -->
+<div class="divider" style="margin-top:80px">
+  <span class="div-label">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    before you begin
+  </span>
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+    <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
+  </svg>
+</div>
+<div class="consult-strip" id="consult-strip"></div>
+
+<div class="divider" id="therapists" style="margin-top:80px">
   <span class="div-label">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     03 — the team
@@ -473,6 +504,29 @@ const howBtn = document.getElementById('how-cta-btn');
 howBtn.href = F;
 howBtn.innerHTML = UI.howCta + ` <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>`;
 
+/* CONSULT STRIP */
+const CS = C.consultSection;
+document.getElementById('consult-strip').innerHTML = `
+  <div style="position:relative;z-index:1">
+    <div class="consult-kicker">${CS.kicker}</div>
+    <h2 class="consult-h">${CS.heading.replace('15-minute call', '<em>15-minute call</em>')}</h2>
+    <p class="consult-body">${CS.body}</p>
+    <div style="margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span class="consult-pill">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2" stroke-linecap="round"/></svg>
+        ₹120 · 15 min intro call
+      </span>
+    </div>
+    <p class="consult-note">${CS.priceNote}</p>
+  </div>
+  <div class="consult-right" style="position:relative;z-index:1">
+    <div class="consult-price"><sup>₹</sup>120</div>
+    <div class="consult-unit">15 min · any therapist</div>
+    <a class="btn btn-moss" href="${F}" target="_blank" rel="noopener" style="margin-top:18px;font-size:13px;padding:12px 22px">
+      ${CS.cta} ↗
+    </a>
+  </div>`;
+
 /* THERAPIST CARDS */
 const portraitGrads = [
   "linear-gradient(160deg,#c9c2ad,#9aa48a)",
@@ -515,10 +569,10 @@ C.therapists.filter(t=>t.active).forEach((t,i)=>{
         <div class="card-meta">${t.fee} ${t.feeUnit} · ${t.days} · ${t.metaItems[1]}</div>
         <div class="actions">
           <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">
-            Book with ${t.name.split(' ')[0]}
+            Book 1st call · ₹120
             <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
           </a>
-          <a class="btn btn-g" href="${F}" target="_blank" rel="noopener">Inquire</a>
+          <a class="btn btn-g" href="${C.profilesPath}/${t.id}.pdf" target="_blank" rel="noopener">Know more ↗</a>
         </div>
       </div>
     </article>`);
