@@ -3,11 +3,65 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<!-- ─── PRIMARY SEO ─────────────────────────────────────────── -->
 <title>pohonch — a quiet place to begin</title>
-<meta name="description" content="A small collective of independent therapists. Affirming, accessible, sliding scale — online, at your pace.">
+<meta name="description" content="A collective of independent therapists offering affirming, accessible, sliding-scale online therapy. Multilingual care in English, Hindi, Marathi, Gujarati, and Telugu."/>
+<meta name="keywords" content="online therapy India, affordable therapy, sliding scale therapy, queer affirming therapy, trauma informed therapy, Hindi therapy, Marathi therapy, Pune therapist, Mumbai therapist, Bangalore therapist, mental health India, pohonch"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pohonchcares.com/"/>
+
+<!-- ─── OPEN GRAPH (Social Preview) ─────────────────────────── -->
+<!-- Replace social-preview.jpeg with your actual image (1200×630 px recommended) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pohonchcares.com/"/>
+<meta property="og:title" content="pohonch — Care with Softness, Solidarity, Sovereignty"/>
+<meta property="og:description" content="A collective of independent therapists. Affirming, accessible, online — at your pace, in languages you actually think in. Sliding scale from ₹500."/>
+<meta property="og:image" content="https://pohonchcares.com/social-preview.jpeg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="pohonch — affirming, accessible therapy collective"/>
+<meta property="og:site_name" content="pohonch"/>
+<meta property="og:locale" content="en_IN"/>
+
+<!-- ─── TWITTER CARD ─────────────────────────────────────────── -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="pohonch — Care with Softness, Solidarity, Sovereignty"/>
+<meta name="twitter:description" content="A collective of independent therapists. Affirming, accessible, online — at your pace, in languages you actually think in."/>
+<meta name="twitter:image" content="https://pohonchcares.com/social-preview.jpeg"/>
+
+<!-- ─── FAVICON ───────────────────────────────────────────────── -->
+<!-- Drop favicon.png into your root folder — all sizes handled below -->
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+
+<!-- ─── SCHEMA.ORG STRUCTURED DATA ──────────────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "pohonch",
+  "description": "A collective of independent therapists offering affirming, accessible, sliding-scale online therapy in multiple Indian languages.",
+  "url": "https://pohonchcares.com",
+  "logo": "https://pohonchcares.com/favicon.png",
+  "image": "https://pohonchcares.com/social-preview.jpeg",
+  "email": "pohonchcares@gmail.com",
+  "sameAs": ["https://www.instagram.com/pohonch"],
+  "medicalSpecialty": "MentalHealth",
+  "availableLanguage": ["English", "Hindi", "Marathi", "Gujarati", "Telugu"],
+  "priceRange": "₹500–₹1600",
+  "areaServed": "IN",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter+Tight:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --paper:  #f1ece0;
@@ -43,37 +97,42 @@ a{color:inherit;text-decoration:none}
 .sway{animation:sway 8s ease-in-out infinite;transform-origin:bottom center}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(2deg)}}
 @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.float-slow,.sway{animation:none}}
 
+/* ─── NAV ─────────────────────────────────────────────────── */
 nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;position:relative;z-index:5}
 .logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:400;font-size:22px;letter-spacing:-.02em;text-decoration:none}
 .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-s)}
 .nav-links a{text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--moss-d)}
-.nav-cta{font-size:14px;border:1px solid var(--ink);padding:10px 18px;border-radius:999px;text-decoration:none;background:var(--ink);color:var(--paper);display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+.nav-cta{font-size:14px;border:1px solid var(--ink);padding:10px 18px;border-radius:999px;text-decoration:none;background:var(--ink);color:var(--paper);display:inline-flex;align-items:center;gap:8px;transition:background .2s;white-space:nowrap}
 .nav-cta:hover{background:var(--moss-d)}
 
+/* ─── HERO ────────────────────────────────────────────────── */
 .hero{padding:48px 0 100px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
-h1{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(48px,7vw,100px);line-height:.96;letter-spacing:-.028em;margin:0;position:relative}
+h1{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(42px,7vw,100px);line-height:.96;letter-spacing:-.028em;margin:0;position:relative}
 h1 em{font-style:italic;color:var(--moss-d);font-variation-settings:"SOFT" 100}
 h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .hero .lede{font-size:17px;color:var(--ink-s);max-width:44ch;margin:28px 0 0;line-height:1.65}
-.hero-meta{display:flex;gap:22px;margin-top:26px;font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.13em;flex-wrap:wrap}
+.hero-meta{display:flex;gap:16px;margin-top:26px;font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.13em;flex-wrap:wrap}
 .hero-meta span{display:inline-flex;align-items:center;gap:7px}
 .handnote{margin-top:44px;max-width:360px}
 .handnote .hand{font-size:21px;transform:rotate(-2deg);display:inline-block;line-height:1.4}
-
 .hero-art{position:relative;height:440px;width:100%;display:flex;align-items:center;justify-content:center}
 
+/* ─── DIVIDER ─────────────────────────────────────────────── */
 .divider{display:flex;align-items:center;gap:18px;color:var(--moss);margin:80px 0 36px;position:relative}
 .div-label{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss-d);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
-.div-squiggle{flex:1;height:14px}
+.div-squiggle{flex:1;height:14px;min-width:0}
 
+/* ─── ABOUT NOTE ──────────────────────────────────────────── */
 .note{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;position:relative}
-.note h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:0;letter-spacing:-.018em}
+.note h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(22px,3.2vw,36px);line-height:1.15;margin:0;letter-spacing:-.018em}
 .note p{font-size:16px;color:var(--ink-s);max-width:56ch;margin:0 0 16px}
 .note .aside{font-size:14px;color:var(--moss-d);background:rgba(106,125,84,.10);padding:14px 18px;border-radius:10px;margin-top:6px;display:flex;gap:12px;align-items:flex-start;line-height:1.5}
 .note .aside svg{flex-shrink:0;margin-top:2px}
 
+/* ─── VALUES ──────────────────────────────────────────────── */
 .values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:44px 0 0}
 .val{background:var(--paper-2);border:1px solid var(--rule);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .val:hover{transform:translateY(-3px);box-shadow:0 14px 40px -18px rgba(31,36,31,.2)}
@@ -82,6 +141,7 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .val p{margin:0;font-size:13px;color:var(--ink-s);line-height:1.5}
 .val::after{content:"";position:absolute;right:-28px;bottom:-28px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(106,125,84,.16),transparent 70%)}
 
+/* ─── HOW IT WORKS ────────────────────────────────────────── */
 .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-radius:16px;overflow:hidden;margin-top:0}
 .how-step{background:var(--paper-2);padding:28px 24px}
 .step-n{font-family:"Fraunces",serif;font-size:36px;color:var(--rule);line-height:1;margin-bottom:16px;display:block}
@@ -89,13 +149,13 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .step-b{font-size:13px;color:var(--ink-s);line-height:1.75;margin:0}
 .how-cta{display:flex;justify-content:center;margin-top:36px}
 
-/* ─── CONSULT STRIP ─────────────────────────────────────────── */
+/* ─── CONSULT STRIP ───────────────────────────────────────── */
 .consult-strip{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;background:var(--paper-2);border:1.5px solid var(--rule);border-radius:20px;padding:44px 52px;margin-bottom:0;position:relative;overflow:hidden}
 .consult-strip::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 560px 320px at 92% 50%,rgba(106,125,84,.12),transparent 70%);pointer-events:none}
 .consult-strip::after{content:"";position:absolute;left:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(184,103,74,.08),transparent 70%);pointer-events:none}
 .consult-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss-d);margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .consult-kicker::before{content:"";width:20px;height:1px;background:var(--moss);display:inline-block}
-.consult-h{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(22px,2.8vw,32px);line-height:1.15;margin:0 0 14px;letter-spacing:-.018em}
+.consult-h{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(20px,2.8vw,32px);line-height:1.15;margin:0 0 14px;letter-spacing:-.018em}
 .consult-h em{font-style:italic;color:var(--moss-d);font-variation-settings:"SOFT" 80}
 .consult-body{font-size:15px;color:var(--ink-s);max-width:52ch;line-height:1.7;margin:0}
 .consult-pill{background:var(--ink);color:var(--paper);border-radius:999px;padding:6px 18px;font-size:13px;display:inline-flex;align-items:center;gap:6px;margin-top:20px}
@@ -105,11 +165,11 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .consult-price sup{font-size:30px;vertical-align:super}
 .consult-unit{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:6px}
 
+/* ─── TEAM ────────────────────────────────────────────────── */
 .team-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:36px;flex-wrap:wrap}
-.team-head h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(32px,4vw,48px);margin:0;letter-spacing:-.022em;line-height:1.05}
+.team-head h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(28px,4vw,48px);margin:0;letter-spacing:-.022em;line-height:1.05}
 .team-head h2 em{font-style:italic;color:var(--moss-d)}
 .team-head p{margin:0;color:var(--ink-s);font-size:15px;max-width:36ch}
-
 .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .card{background:var(--paper-2);border:1px solid var(--rule);border-radius:18px;padding:26px;display:grid;grid-template-columns:120px 1fr;gap:22px;position:relative;transition:transform .3s,box-shadow .3s;overflow:hidden}
 .card::before{content:"";position:absolute;left:-28px;top:-28px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(106,125,84,.22),transparent 70%);pointer-events:none}
@@ -129,7 +189,7 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .tag::before{content:"";width:4px;height:4px;border-radius:99px;background:var(--moss)}
 .card-meta{font-size:11.5px;color:var(--stone);margin-bottom:14px;line-height:1.7}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn{font-size:12.5px;padding:10px 16px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.btn{font-size:12.5px;padding:10px 16px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer}
 .btn-p{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .btn-p:hover{background:var(--moss-d);border-color:var(--moss-d)}
 .btn-g{border-color:var(--ink);color:var(--ink)}
@@ -137,11 +197,13 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .btn-moss{background:var(--moss-d);color:var(--paper);border-color:var(--moss-d)}
 .btn-moss:hover{background:var(--ink)}
 
+/* ─── QUOTE BAND ──────────────────────────────────────────── */
 .quote-band{margin:80px 0 0;padding:64px 50px;background:linear-gradient(135deg,var(--moss-d),#2d3826);color:var(--paper);border-radius:24px;position:relative;overflow:hidden}
 .quote-band .leaves-bg{position:absolute;inset:0;opacity:.18;pointer-events:none;width:100%;height:100%}
-.quote-band blockquote{font-family:"Fraunces",serif;font-style:italic;font-weight:320;font-size:clamp(24px,3.2vw,38px);line-height:1.25;margin:0;max-width:34ch;letter-spacing:-.015em}
-.quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.quote-band blockquote{font-family:"Fraunces",serif;font-style:italic;font-weight:320;font-size:clamp(20px,3.2vw,38px);line-height:1.25;margin:0;max-width:34ch;letter-spacing:-.015em;position:relative;z-index:1}
+.quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;position:relative;z-index:1}
 
+/* ─── FOUNDER ─────────────────────────────────────────────── */
 .founder-sec{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;margin:44px 0 0}
 .founder-art{aspect-ratio:4/5;border-radius:18px;background:
   radial-gradient(60% 40% at 40% 30%,rgba(255,255,255,.22),transparent 60%),
@@ -150,17 +212,18 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .founder-art::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(to top,rgba(31,36,31,.42),transparent)}
 .founder-art .f-branch{position:absolute;top:-28px;right:-28px;opacity:.9}
 .founder-art .f-moss{position:absolute;bottom:-10px;left:-10px}
-.founder-sec h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(28px,3.5vw,44px);line-height:1.08;letter-spacing:-.022em;margin:0 0 18px}
+.founder-sec h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(24px,3.5vw,44px);line-height:1.08;letter-spacing:-.022em;margin:0 0 18px}
 .founder-sec h2 em{font-style:italic;color:var(--moss-d)}
 .founder-sec p{font-size:16px;color:var(--ink-s);max-width:52ch;margin:0 0 16px;line-height:1.65}
 .pull{font-family:"Fraunces",serif;font-style:italic;font-size:20px;line-height:1.38;color:var(--moss-d);padding-left:20px;margin:22px 0;position:relative}
 .pull::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--moss-b),var(--moss-d));border-radius:2px}
 
+/* ─── FOOTER ──────────────────────────────────────────────── */
 footer{margin-top:100px;padding:64px 0 44px;position:relative}
 footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'><path d='M0,28 Q150,6 300,28 T600,28 T900,28 T1200,28' stroke='%23c9bfa6' stroke-width='1.2' fill='none'/><path d='M0,38 Q150,16 300,38 T600,38 T900,38 T1200,38' stroke='%23c9bfa6' stroke-width='1' fill='none' opacity='.5'/></svg>") center/100% 100% no-repeat}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;align-items:start}
-.foot-grid h4{font-family:"Fraunces",serif;font-weight:380;font-size:28px;margin:0 0 12px;letter-spacing:-.015em;line-height:1.15}
+.foot-grid h4{font-family:"Fraunces",serif;font-weight:380;font-size:clamp(20px,2.5vw,28px);margin:0 0 12px;letter-spacing:-.015em;line-height:1.15}
 .foot-grid p{color:var(--ink-s);font-size:15px;margin:0 0 8px;max-width:34ch}
 .foot-list{list-style:none;padding:0;margin:0;font-size:14px;color:var(--ink-s);display:grid;gap:8px}
 .foot-list a{text-decoration:none;transition:color .15s}
@@ -169,55 +232,110 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 .colophon a{color:var(--moss-d);border-bottom:1px solid rgba(58,70,50,.3);padding-bottom:1px;text-transform:none;letter-spacing:0}
 .colophon a:hover{border-bottom-color:var(--moss-d)}
 
-@media(max-width:900px){
-  .hero,.note,.founder-sec,.foot-grid{grid-template-columns:1fr;gap:36px}
+/* ─── MOBILE NAV MENU ─────────────────────────────────────── */
+.nav-mobile-toggle{display:none;background:none;border:none;padding:8px;cursor:pointer;color:var(--ink)}
+.nav-mobile-menu{display:none;position:fixed;inset:0;background:var(--paper);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-family:"Fraunces",serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.nav-mobile-menu a:hover{color:var(--moss-d)}
+.nav-mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink);line-height:1}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:1024px){
   .team-grid{grid-template-columns:1fr}
   .values{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:36px 0 72px}
+  .hero-art{height:260px;order:-1}
+  .note{grid-template-columns:1fr;gap:24px}
+  .founder-sec{grid-template-columns:1fr;gap:32px}
+  .founder-art{aspect-ratio:16/9;max-height:260px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .foot-grid > div:first-child{grid-column:1/-1}
   .how-steps{grid-template-columns:1fr}
-  .card{grid-template-columns:90px 1fr;padding:20px}
+  .card{grid-template-columns:90px 1fr;padding:20px;gap:16px}
   .portrait{width:90px;height:112px}
   .team-head{flex-direction:column;align-items:flex-start}
   .quote-band{padding:44px 28px}
-  .hero-art{height:280px}
-  .nav-links{display:none}
-  h1{font-size:52px}
-  .consult-strip{grid-template-columns:1fr;gap:28px;padding:32px 28px}
+  .consult-strip{grid-template-columns:1fr;gap:24px;padding:32px 28px}
   .consult-right{text-align:left}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+  .botanical{display:none}
 }
-@media(max-width:540px){
-  .wrap{padding:0 20px}
+
+@media(max-width:640px){
+  .wrap{padding:0 18px}
+  h1{font-size:42px;line-height:1.0}
+  .hero{padding:28px 0 56px}
+  .hero .lede{font-size:16px}
+  .hero-meta{gap:10px;font-size:11px;letter-spacing:.08em}
+  .handnote .hand{font-size:18px}
   .values{grid-template-columns:1fr}
-  .quote-band{padding:36px 22px}
-  .consult-strip{padding:28px 22px}
+  .quote-band{padding:36px 22px;border-radius:16px}
+  .consult-strip{padding:26px 20px;border-radius:14px}
+  .consult-price{font-size:56px}
+  .card{grid-template-columns:78px 1fr;padding:16px;gap:14px}
+  .portrait{width:78px;height:96px}
+  .card h3{font-size:19px}
+  .card-bio{font-size:13px}
+  .corner-note{display:none}
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  footer{margin-top:64px;padding:44px 0 32px}
+  .colophon{flex-direction:column;align-items:flex-start;gap:6px}
+  .divider{margin:56px 0 28px}
+  nav{padding:20px 0}
+  .how-step{padding:22px 18px}
+  .actions{gap:6px}
+  .btn{font-size:12px;padding:9px 14px}
+}
+
+@media(max-width:380px){
+  h1{font-size:36px}
+  .card{grid-template-columns:1fr;gap:12px}
+  .portrait{width:100%;height:160px}
 }
 </style>
 </head>
 <body>
 
-<svg class="botanical float-slow" style="top:70px;right:3.5%;width:88px;height:88px" viewBox="0 0 100 100" fill="none">
+<!-- ─── BOTANICAL DECORATIONS ─────────────────────────────────── -->
+<svg class="botanical float-slow" style="top:70px;right:3.5%;width:88px;height:88px" viewBox="0 0 100 100" fill="none" aria-hidden="true">
   <path d="M50 95 V40" stroke="#6a7d54" stroke-width="1.4"/>
   <path d="M50 60 C30 55,20 40,18 25 C35 30,45 45,50 60Z" fill="#8aa067" opacity=".82"/>
   <path d="M50 50 C70 45,80 30,82 15 C65 20,55 35,50 50Z" fill="#6a7d54" opacity=".88"/>
   <circle cx="50" cy="35" r="3" fill="#b8674a"/>
 </svg>
-<svg class="botanical sway" style="top:220px;left:.8%;width:66px;height:115px" viewBox="0 0 70 120" fill="none">
+<svg class="botanical sway" style="top:220px;left:.8%;width:66px;height:115px" viewBox="0 0 70 120" fill="none" aria-hidden="true">
   <path d="M35 120 V30" stroke="#3a4632" stroke-width="1.2"/>
   <ellipse cx="20" cy="72" rx="14" ry="6" transform="rotate(-30 20 72)" fill="#6a7d54" opacity=".8"/>
   <ellipse cx="50" cy="52" rx="14" ry="6" transform="rotate(30 50 52)" fill="#8aa067" opacity=".8"/>
   <ellipse cx="22" cy="37" rx="10" ry="5" transform="rotate(-25 22 37)" fill="#6a7d54" opacity=".7"/>
 </svg>
-<svg class="botanical sway" style="bottom:60px;right:1.5%;width:76px;height:135px" viewBox="0 0 80 140" fill="none">
+<svg class="botanical sway" style="bottom:60px;right:1.5%;width:76px;height:135px" viewBox="0 0 80 140" fill="none" aria-hidden="true">
   <path d="M40 140 V32" stroke="#3a4632" stroke-width="1.4"/>
   <path d="M40 100 C15 95,6 76,6 56 C28 61,42 80,40 100Z" fill="#6a7d54" opacity=".82"/>
   <path d="M40 76 C65 70,74 50,74 30 C52 36,38 56,40 76Z" fill="#8aa067" opacity=".82"/>
   <circle cx="40" cy="32" r="4" fill="#b8674a"/>
 </svg>
 
+<!-- ─── MOBILE NAV MENU ─────────────────────────────────────── -->
+<div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">✕</button>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#therapists" onclick="closeMobileMenu()">Therapists</a>
+  <a href="#founder" onclick="closeMobileMenu()">Founder</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a class="nav-cta" href="https://forms.gle/soFwpjkmvZtoqw766" target="_blank" rel="noopener" style="margin-top:12px">Begin ↗</a>
+</div>
+
 <div class="wrap">
 
 <nav>
-  <a href="#" class="logo" id="nav-logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a4632" stroke-width="1.5" stroke-linecap="round">
+  <a href="#" class="logo" aria-label="pohonch home">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a4632" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
       <path d="M12 22V10"/>
       <path d="M12 14c-3-4-7-3-9-1 1 4 5 5 9 1z" fill="#8aa067" fill-opacity=".4"/>
       <path d="M12 11c2.5-3.5 7-3 9-1-1 4-5 5-9 1z" fill="#6a7d54" fill-opacity=".5"/>
@@ -225,30 +343,41 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
     pohonch
   </a>
   <div class="nav-links" id="nav-links-inner"></div>
-  <a class="nav-cta" id="nav-cta" href="#"></a>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a class="nav-cta" id="nav-cta" href="#"></a>
+    <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M3 6h16M3 11h16M3 16h16"/>
+      </svg>
+    </button>
+  </div>
 </nav>
 
-<section class="hero">
+<main>
+
+<section class="hero" aria-labelledby="hero-h1">
   <div>
     <h1 id="hero-h1"></h1>
     <p class="lede" id="hero-lede"></p>
     <div class="hero-meta" id="hero-meta"></div>
     <div class="handnote">
       <div class="hand" id="hero-hand"></div>
-      <svg width="110" height="28" viewBox="0 0 120 30" style="display:block;margin-top:4px" fill="none">
+      <svg width="110" height="28" viewBox="0 0 120 30" style="display:block;margin-top:4px" fill="none" aria-hidden="true">
         <path d="M5 15 Q40 5,80 18 T115 12" stroke="#6a7d54" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M110 8 L115 12 L110 17" stroke="#6a7d54" stroke-width="1.5" fill="none" stroke-linecap="round"/>
       </svg>
     </div>
   </div>
 
-  <div class="hero-art">
+  <div class="hero-art" aria-hidden="true">
     <svg viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;max-height:440px">
       <rect width="480" height="440" fill="#e8e2d4" rx="20"/>
-      <radial-gradient id="moonGlow" cx="50%" cy="28%" r="38%">
-        <stop offset="0%" stop-color="#f7f3e8" stop-opacity=".9"/>
-        <stop offset="100%" stop-color="#e8e2d4" stop-opacity="0"/>
-      </radial-gradient>
+      <defs>
+        <radialGradient id="moonGlow" cx="50%" cy="28%" r="38%">
+          <stop offset="0%" stop-color="#f7f3e8" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#e8e2d4" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
       <ellipse cx="240" cy="122" rx="170" ry="130" fill="url(#moonGlow)"/>
       <path d="M-10 320 Q80 240,160 260 Q240 278,320 248 Q400 220,490 260 L490 440 L-10 440Z" fill="#c5bda8"/>
       <path d="M-10 350 Q60 290,140 310 Q220 328,300 304 Q380 282,490 305 L490 440 L-10 440Z" fill="#bab3a0"/>
@@ -291,8 +420,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
       <path d="M110 360 C72 350,50 320,46 290 C78 290,104 316,110 360Z" fill="#4a5c38" opacity=".9"/>
       <path d="M110 320 C148 310,170 280,174 252 C144 254,112 276,110 320Z" fill="#5a6b48" opacity=".9"/>
       <path d="M110 285 C82 276,66 250,68 230 C88 234,106 258,110 285Z" fill="#4a5c38" opacity=".8"/>
-      <path d="M110 310 Q92 298,80 304" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
-      <path d="M110 350 Q128 340,138 346" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
       <path d="M370 440 V290" stroke="#3a4632" stroke-width="1.8" stroke-linecap="round"/>
       <path d="M370 370 C340 362,322 336,320 310 C346 312,366 336,370 370Z" fill="#4a5c38" opacity=".85"/>
       <path d="M370 330 C398 320,416 296,416 270 C392 274,372 298,370 330Z" fill="#5a6b48" opacity=".85"/>
@@ -303,7 +430,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
       <circle cx="174" cy="405" r="4" fill="#c79a4a"/>
       <circle cx="186" cy="405" r="4" fill="#c79a4a"/>
       <circle cx="180" cy="400" r="2.2" fill="#f1ece0"/>
-      <path d="M180 422 L172 418" stroke="#5a6b4a" stroke-width="1.2" stroke-linecap="round"/>
       <path d="M295 440 V414" stroke="#3a4632" stroke-width="1.2" stroke-linecap="round"/>
       <circle cx="295" cy="408" r="4" fill="#c79a4a"/>
       <circle cx="290" cy="403" r="3.5" fill="#b8674a"/>
@@ -311,34 +437,25 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
       <circle cx="290" cy="413" r="3.5" fill="#b8674a"/>
       <circle cx="300" cy="413" r="3.5" fill="#b8674a"/>
       <circle cx="295" cy="408" r="2" fill="#f1ece0"/>
-      <path d="M295 424 L302 420" stroke="#5a6b4a" stroke-width="1.1" stroke-linecap="round"/>
       <ellipse cx="240" cy="432" rx="38" ry="8" fill="#5a6b4a" opacity=".5"/>
       <circle cx="224" cy="428" r="4" fill="#8aa067" opacity=".8"/>
       <circle cx="240" cy="425" r="3.5" fill="#8aa067" opacity=".8"/>
       <circle cx="256" cy="428" r="4" fill="#6a7d54" opacity=".8"/>
-      <circle cx="214" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
-      <circle cx="266" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
-      <circle cx="155" cy="300" r="2.5" fill="#c79a4a" opacity=".6"/>
-      <circle cx="155" cy="300" r="5"   fill="#c79a4a" opacity=".15"/>
-      <circle cx="340" cy="330" r="2"   fill="#c79a4a" opacity=".5"/>
-      <circle cx="340" cy="330" r="4"   fill="#c79a4a" opacity=".12"/>
-      <circle cx="220" cy="355" r="1.8" fill="#c79a4a" opacity=".45"/>
-      <circle cx="220" cy="355" r="4"   fill="#c79a4a" opacity=".1"/>
     </svg>
   </div>
 </section>
 
 <div class="divider">
   <span class="div-label">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     01 — about pohonch
   </span>
-  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
   </svg>
 </div>
 
-<section class="note" id="about">
+<section class="note" id="about" aria-label="About Pohonch">
   <h2 id="note-h2"></h2>
   <div id="note-right"></div>
 </section>
@@ -347,10 +464,10 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 <div class="divider">
   <span class="div-label">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     02 — how it works
   </span>
-  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M0 7 Q50 13,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
   </svg>
 </div>
@@ -358,17 +475,16 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 <div class="how-steps" id="how-steps"></div>
 <div class="how-cta">
   <a class="btn btn-p" id="how-cta-btn" href="#">
-    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
   </a>
 </div>
 
-<!-- ─── CONSULT STRIP ──────────────────────────────────────── -->
 <div class="divider" style="margin-top:80px">
   <span class="div-label">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     before you begin
   </span>
-  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
   </svg>
 </div>
@@ -376,10 +492,10 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 <div class="divider" id="therapists" style="margin-top:80px">
   <span class="div-label">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     03 — the team
   </span>
-  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
   </svg>
 </div>
@@ -388,18 +504,15 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   <h2>Find a therapist whose voice<br/>feels like a <em>soft place.</em></h2>
   <p>Real people, different approaches. Read through, see whose voice you trust, and reach out directly.</p>
 </div>
-<div class="team-grid" id="team-grid"></div>
+<div class="team-grid" id="team-grid" role="list"></div>
 
-<section class="quote-band">
-  <svg class="leaves-bg" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none">
+<section class="quote-band" aria-label="Our philosophy">
+  <svg class="leaves-bg" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M-50 250 Q200 180,400 230 T900 200 T1250 240" stroke="#f1ece0" stroke-width="1.2"/>
     <ellipse cx="200" cy="220" rx="22" ry="8" transform="rotate(-20 200 220)" fill="#f1ece0"/>
     <ellipse cx="500" cy="210" rx="20" ry="7" transform="rotate(15 500 210)" fill="#f1ece0"/>
     <ellipse cx="850" cy="200" rx="24" ry="9" transform="rotate(-25 850 200)" fill="#f1ece0"/>
     <ellipse cx="1100" cy="230" rx="18" ry="6" transform="rotate(20 1100 230)" fill="#f1ece0"/>
-    <circle cx="320" cy="180" r="5" fill="#f1ece0"/>
-    <circle cx="700" cy="170" r="4" fill="#f1ece0"/>
-    <circle cx="980" cy="190" r="5" fill="#f1ece0"/>
   </svg>
   <blockquote></blockquote>
   <cite></cite>
@@ -407,23 +520,23 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 <div class="divider" id="founder">
   <span class="div-label">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
     04 — the founder
   </span>
-  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none" aria-hidden="true">
     <path d="M0 7 Q50 13,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
   </svg>
 </div>
 
-<section class="founder-sec">
-  <div class="founder-art">
-    <svg class="f-branch sway" width="110" height="110" viewBox="0 0 120 120" fill="none">
+<section class="founder-sec" aria-label="About the founder">
+  <div class="founder-art" role="img" aria-label="Decorative illustration">
+    <svg class="f-branch sway" width="110" height="110" viewBox="0 0 120 120" fill="none" aria-hidden="true">
       <path d="M60 120 V42" stroke="#3a4632" stroke-width="1.5"/>
       <path d="M60 82 C30 77,14 57,12 32 C40 37,58 57,60 82Z" fill="#8aa067" opacity=".88"/>
       <path d="M60 62 C90 57,106 37,108 12 C80 17,62 37,60 62Z" fill="#6a7d54" opacity=".88"/>
       <circle cx="60" cy="42" r="4.5" fill="#b8674a"/>
     </svg>
-    <svg class="f-moss" width="96" height="56" viewBox="0 0 100 60" fill="none">
+    <svg class="f-moss" width="96" height="56" viewBox="0 0 100 60" fill="none" aria-hidden="true">
       <ellipse cx="50" cy="42" rx="44" ry="14" fill="#6a7d54" opacity=".55"/>
       <circle cx="30" cy="32" r="5" fill="#8aa067"/>
       <circle cx="50" cy="28" r="4" fill="#8aa067"/>
@@ -434,36 +547,50 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   <div id="founder-text"></div>
 </section>
 
+</main>
+
 <footer id="contact">
   <div class="foot-grid" id="foot-grid"></div>
   <div class="colophon" id="colophon"></div>
 </footer>
 
-</div>
+</div><!-- .wrap -->
+
 <script src="content.js"></script>
 <script>
 const C = CONTENT, F = C.inquiryFormUrl, UI = C.ui;
 
-/* NAV */
+/* ─── MOBILE NAV ──────────────────────────────────────────── */
+const mobileMenu = document.getElementById('nav-mobile-menu');
+const mobileToggle = document.getElementById('nav-mobile-toggle');
+const mobileClose = document.getElementById('nav-mobile-close');
+function openMobileMenu(){mobileMenu.classList.add('open');mobileToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function closeMobileMenu(){mobileMenu.classList.remove('open');mobileToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+mobileToggle.addEventListener('click',openMobileMenu);
+mobileClose.addEventListener('click',closeMobileMenu);
+mobileMenu.addEventListener('click',e=>{if(e.target===mobileMenu)closeMobileMenu()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+
+/* ─── NAV ─────────────────────────────────────────────────── */
 document.getElementById('nav-links-inner').innerHTML =
   `<a href="#about">About</a><a href="#therapists">Therapists</a><a href="#founder">Founder</a><a href="#contact">Contact</a>`;
 document.getElementById('nav-cta').href = F;
 document.getElementById('nav-cta').innerHTML = UI.navCta + ' ↗';
 
-/* HERO */
+/* ─── HERO ────────────────────────────────────────────────── */
 const H = C.hero;
 const dotColor = {moss:'#6a7d54', clay:'#b8674a', ochre:'#c79a4a'};
 document.getElementById('hero-h1').innerHTML = `${H.headlineTop}<br/><em>${H.headlineBottom}</em>
-  <svg class="sketch-line" height="14" viewBox="0 0 400 14" preserveAspectRatio="none">
+  <svg class="sketch-line" height="14" viewBox="0 0 400 14" preserveAspectRatio="none" aria-hidden="true">
     <path d="M2 8 Q100 2,200 7 T398 6" stroke="#b8674a" stroke-width="2" fill="none" stroke-linecap="round"/>
   </svg>`;
 document.getElementById('hero-lede').textContent = H.subtext;
 document.getElementById('hero-meta').innerHTML = H.metaItems.map(m=>
-  `<span><svg width="9" height="9" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="${dotColor[m.dot]||'#6a7d54'}"/></svg>${m.text}</span>`
+  `<span><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="${dotColor[m.dot]||'#6a7d54'}"/></svg>${m.text}</span>`
 ).join('');
 document.getElementById('hero-hand').textContent = H.handNote;
 
-/* NOTE / ABOUT */
+/* ─── ABOUT ───────────────────────────────────────────────── */
 const AB = C.about;
 document.getElementById('note-h2').textContent = "Help is available whenever you are ready for it";
 document.getElementById('note-right').innerHTML = `
@@ -471,7 +598,7 @@ document.getElementById('note-right').innerHTML = `
   <p>${AB.bodyRight[0]}</p>
   <p>${AB.bodyRight[1]}</p>
   <div class="aside">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path d="M10 18V8" stroke="#3a4632" stroke-width="1.4" stroke-linecap="round"/>
       <path d="M10 12c-2-3-5-2-7-1 1 3 4 4 7 1z" fill="#6a7d54"/>
       <path d="M10 10c2-3 5-2 7-1-1 3-4 4-7 1z" fill="#8aa067"/>
@@ -479,7 +606,7 @@ document.getElementById('note-right').innerHTML = `
     ${AB.pullQuote}
   </div>`;
 
-/* VALUES */
+/* ─── VALUES ──────────────────────────────────────────────── */
 const valSVGs = [
   `<path d="M18 32V14" stroke="#3a4632" stroke-width="1.5"/><path d="M18 22c-5-5-12-3-15-1 2 6 9 7 15 1z" fill="#6a7d54"/><path d="M18 18c5-5 12-3 15-1-2 6-9 7-15 1z" fill="#8aa067"/>`,
   `<path d="M4 22 Q12 18,18 22 T32 22" stroke="#6a7d54" stroke-width="1.6" fill="none"/><path d="M4 26 Q12 22,18 26 T32 26" stroke="#8aa067" stroke-width="1.4" fill="none"/><path d="M4 18 Q12 14,18 18 T32 18" stroke="#6a7d54" stroke-width="1.2" fill="none" opacity=".7"/>`,
@@ -488,23 +615,23 @@ const valSVGs = [
 ];
 document.getElementById('values').innerHTML = UI.valuesCards.map((v,i)=>`
   <div class="val">
-    <svg class="ico" width="36" height="36" viewBox="0 0 36 36" fill="none">${valSVGs[i]}</svg>
+    <svg class="ico" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">${valSVGs[i]}</svg>
     <h4>${v.heading}</h4><p>${v.body}</p>
   </div>`).join('');
 
-/* HOW */
+/* ─── HOW IT WORKS ────────────────────────────────────────── */
 const HW = C.howItWorks;
 document.getElementById('how-steps').innerHTML = HW.steps.map(s=>`
   <div class="how-step">
-    <span class="step-n">${s.number}</span>
+    <span class="step-n" aria-hidden="true">${s.number}</span>
     <div class="step-t">${s.title}</div>
     <p class="step-b">${s.body}</p>
   </div>`).join('');
 const howBtn = document.getElementById('how-cta-btn');
 howBtn.href = F;
-howBtn.innerHTML = UI.howCta + ` <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>`;
+howBtn.innerHTML = UI.howCta + ` <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3"/></svg>`;
 
-/* CONSULT STRIP */
+/* ─── CONSULT STRIP ───────────────────────────────────────── */
 const CS = C.consultSection;
 document.getElementById('consult-strip').innerHTML = `
   <div style="position:relative;z-index:1">
@@ -513,7 +640,7 @@ document.getElementById('consult-strip').innerHTML = `
     <p class="consult-body">${CS.body}</p>
     <div style="margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <span class="consult-pill">
-        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2" stroke-linecap="round"/></svg>
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2" stroke-linecap="round"/></svg>
         ₹120 · 15 min intro call
       </span>
     </div>
@@ -527,7 +654,7 @@ document.getElementById('consult-strip').innerHTML = `
     </a>
   </div>`;
 
-/* THERAPIST CARDS */
+/* ─── THERAPIST CARDS ─────────────────────────────────────── */
 const portraitGrads = [
   "linear-gradient(160deg,#c9c2ad,#9aa48a)",
   "linear-gradient(160deg,#b89a78,#7a6248)",
@@ -549,40 +676,44 @@ const leafDirs = [
 const grid = document.getElementById('team-grid');
 C.therapists.filter(t=>t.active).forEach((t,i)=>{
   const portraitInner = t.imagePath
-    ? `<img src="images/${t.imagePath}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px" onerror="this.outerHTML='<div class=portrait-placeholder>${t.avatarInitials}</div>'">`
-    : `<div class="portrait-placeholder" style="background:${portraitGrads[i%portraitGrads.length]}">${t.avatarInitials}</div>`;
+    ? `<img src="images/${t.imagePath}" alt="Portrait of ${t.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px" onerror="this.outerHTML='<div class=portrait-placeholder>${t.avatarInitials}</div>'">`
+    : `<div class="portrait-placeholder" style="background:${portraitGrads[i%portraitGrads.length]};color:rgba(31,36,31,.5)">${t.avatarInitials}</div>`;
+
+  // Use profileUrl (Canva link) from content.js
+  const profileLink = t.profileUrl || '#';
+
   grid.insertAdjacentHTML('beforeend',`
-    <article class="card">
-      <span class="corner-note" style="${i%3===2?'color:var(--moss-d)':''}">${UI.cornerNotes[i%UI.cornerNotes.length]}</span>
+    <article class="card" role="listitem" itemscope itemtype="https://schema.org/Person">
+      <span class="corner-note" aria-hidden="true" style="${i%3===2?'color:var(--moss-d)':''}">${UI.cornerNotes[i%UI.cornerNotes.length]}</span>
       <div class="portrait" style="background:${portraitGrads[i%portraitGrads.length]}">
         ${portraitInner}
-        <div class="ring"></div>
-        <svg class="leaf-d" width="46" height="46" viewBox="0 0 50 50" fill="none">
+        <div class="ring" aria-hidden="true"></div>
+        <svg class="leaf-d" width="46" height="46" viewBox="0 0 50 50" fill="none" aria-hidden="true">
           <path d="${leafDirs[i%leafDirs.length]}" fill="#3a4632" opacity=".45"/>
         </svg>
       </div>
       <div>
-        <h3>${t.name}</h3>
-        <div class="card-role">${t.pronouns} · ${t.location}</div>
-        <p class="card-bio">${t.bio}</p>
-        <div class="tags">${t.tags.map(g=>`<span class="tag">${g}</span>`).join('')}</div>
+        <h3 itemprop="name">${t.name}</h3>
+        <div class="card-role">${t.pronouns} · <span itemprop="workLocation">${t.location}</span></div>
+        <p class="card-bio" itemprop="description">${t.bio}</p>
+        <div class="tags" aria-label="Specialisations">${t.tags.map(g=>`<span class="tag">${g}</span>`).join('')}</div>
         <div class="card-meta">${t.fee} ${t.feeUnit} · ${t.days} · ${t.metaItems[1]}</div>
         <div class="actions">
           <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">
             Book 1st call · ₹120
-            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
           </a>
-          <a class="btn btn-g" href="${C.profilesPath}/${t.id}.pdf" target="_blank" rel="noopener">Know more ↗</a>
+          <a class="btn btn-g" href="${profileLink}" target="_blank" rel="noopener">Know more ↗</a>
         </div>
       </div>
     </article>`);
 });
 
-/* QUOTE BAND */
+/* ─── QUOTE BAND ──────────────────────────────────────────── */
 document.querySelector('.quote-band blockquote').textContent = `"${UI.quoteText}"`;
 document.querySelector('.quote-band cite').textContent = `— ${UI.quoteCite}`;
 
-/* FOUNDER */
+/* ─── FOUNDER ─────────────────────────────────────────────── */
 const FO = AB.founder;
 document.getElementById('founder-text').innerHTML = `
   <h2>A note from <em>${FO.name},</em><br/>who started Pohonch.</h2>
@@ -594,14 +725,14 @@ document.getElementById('founder-text').innerHTML = `
     <a class="btn btn-g" href="#therapists">${UI.founderCtaSecondary}</a>
   </div>`;
 
-/* FOOTER */
+/* ─── FOOTER ──────────────────────────────────────────────── */
 const FT = C.footer;
 document.getElementById('foot-grid').innerHTML = `
   <div>
     <h4>Help is available<br/>whenever you are ready for it.</h4>
     <p>${UI.footerBlurb}</p>
     <a class="btn btn-p" href="${F}" target="_blank" rel="noopener" style="margin-top:20px;display:inline-flex">${UI.footerCta} ↗</a>
-    <svg style="margin-top:18px;display:block" width="130" height="36" viewBox="0 0 140 40" fill="none">
+    <svg style="margin-top:18px;display:block" width="130" height="36" viewBox="0 0 140 40" fill="none" aria-hidden="true">
       <path d="M5 20 Q40 5,80 25 T130 18" stroke="#6a7d54" stroke-width="1.4" stroke-linecap="round"/>
       <path d="M125 13 L130 18 L125 23" stroke="#6a7d54" stroke-width="1.4" fill="none" stroke-linecap="round"/>
     </svg>
