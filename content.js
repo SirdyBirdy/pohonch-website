@@ -51,9 +51,9 @@ const CONTENT = {
 
   // ─── PHILOSOPHY ──────────────────────────────────────────────
   philosophy: {
-    quote: "We encourage you to start, to access, experience presence, holding — and just slowly, together step into presence, acceptance, and a future where ease is not only possible, but awaits us.",
+    quote: "We encourage you to start, to access, experience presence, holding and just slowly, together step into presence, acceptance, and a future where ease is not only possible, but awaits us.",
     body: [
-      "Our care is rooted in presence — like a quiet forest, steady and calming.",
+      "Our care is rooted in presence, like a quiet forest, steady and calming.",
       "Give therapy and well-being a chance."
     ]
   },
@@ -61,7 +61,7 @@ const CONTENT = {
   // ─── ABOUT ───────────────────────────────────────────────────
   about: {
     heading: "a collective built on care, not scale",
-    body: "Pohonch started from a belief that therapy shouldn't be a luxury — and that finding the right person should feel possible, not overwhelming.",
+    body: "Pohonch started from a belief that therapy shouldn't be a luxury, and that finding the right person should feel possible, not overwhelming.",
     stats: [
       { number: "7",    label: "therapists" },
       { number: "5",    label: "languages" },
@@ -76,9 +76,30 @@ const CONTENT = {
       initials: "S",
       name: "Sindhu",
       pronouns: "they/them",
-      role: "Founder · Lead Psychotherapist",
-      bio: "\"I named my practice Pohonch because I've always believed that access is the most vital, yet challenging part of healthcare in India. Building this team of therapists is a milestone towards my dream to make care accessible — within reach, and with lasting impact.\""
+      role: "Founder. Lead Psychotherapist.",
+      bio: "\"I named my practice Pohonch because I've always believed that access is the most vital, yet challenging part of healthcare in India. Building this team of therapists is a milestone towards my dream to make care accessible, within reach, and with lasting impact.\""
     }
+  },
+
+  // ─── UI STRINGS ──────────────────────────────────────────────
+  // Button labels, card notes, quote band, footer blurb
+  ui: {
+    navCta: "Begin",
+    howCta: "Find your therapist",
+    founderCtaPrimary: "Get in touch",
+    founderCtaSecondary: "Meet the team",
+    founderCloser: "Not sure who to book with? Write to us and we'll point you somewhere. No waiting room, no script.",
+    footerBlurb: "Reach out when you're ready. Even one line is enough. We'll take it from there.",
+    footerCta: "Begin",
+    quoteText: "Healing isn't about becoming someone new. It's about finding the life that's already there, often in unlikely places.",
+    quoteCite: "a working note, pinned to our wall",
+    cornerNotes: ["a good listener", "slow & steady", "full of warmth", "quietly brave", "grounded & clear", "still building", "holds space well"],
+    valuesCards: [
+      { heading: "Life finds a way",     body: "We meet the parts of you that have been quietly resilient, even when you couldn't see it." },
+      { heading: "Slow on purpose",      body: "No scripts, no rush. We move at whatever pace your nervous system can actually hold." },
+      { heading: "Soft, not perfect",    body: "You don't have to arrive polished. The messy parts are welcome here too." },
+      { heading: "Roots, not just leaves", body: "We work with what's underneath, gently, without pushing." }
+    ]
   },
 
   // ─── HOW IT WORKS ────────────────────────────────────────────
@@ -87,7 +108,7 @@ const CONTENT = {
       {
         number: "01",
         title: "read slowly",
-        body: "Browse the profiles. Notice who you feel drawn to. This part is allowed to take time — there's no timer, no urgency."
+        body: "Browse the profiles. Notice who you feel drawn to. This part is allowed to take time, there's no timer, no urgency."
       },
       {
         number: "02",
@@ -97,7 +118,7 @@ const CONTENT = {
       {
         number: "03",
         title: "begin, at your pace",
-        body: "Consent, first session, then the actual work — messy and imperfect and deeply, deeply human."
+        body: "Consent, first session, then the actual work, messy and imperfect and deeply, deeply human."
       }
     ]
   },
@@ -119,7 +140,7 @@ const CONTENT = {
       avatarColor: "#5C5035",
       imagePath: "sindhu.jpg",
       tags: ["complex trauma", "intimate partner violence", "grief", "anxiety", "depression", "self-harm", "anti-caste", "intersectional feminist"],
-      bio: "Sindhu (chosen name) is the founder of Pohonch — which began in February 2022 as their attempt to make ethical, quality mental health care accessible. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches.",
+      bio: "Sindhu (chosen name) is the founder of Pohonch, which began in February 2022 as their attempt to make ethical, quality mental health care accessible. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches.",
       metaItems: ["3200+ hrs · Masters Clinical Psychology, Mumbai University 2021", "English · Marathi · Hindi", "Online (Google Meet) + in-person Pune"],
       active: true
     },
@@ -138,7 +159,7 @@ const CONTENT = {
       avatarColor: "#085041",
       imagePath: "aishwarya-temgire.jpg",
       tags: ["chronic illness", "trauma & PTSD", "neurodivergence", "immigration anxiety", "anxiety", "grief", "IFS", "somatic"],
-      bio: "Raised in the Gulf for 18 years, now based in Pune. She knows what it means to not quite belong anywhere — and to slowly, imperfectly build a sense of self anyway. Aishwarya is a neurodivergent therapist and SA survivor who brings IFS parts-based work, expressive arts, and somatic approaches. She practices from a liberation-focused lens and believes healing happens in relationship — with ourselves, with others, with our bodies.",
+      bio: "Raised in the Gulf for 18 years, now based in Pune. She knows what it means to not quite belong anywhere, and to slowly, imperfectly build a sense of self anyway. Aishwarya is a neurodivergent therapist and SA survivor who brings IFS parts-based work, expressive arts, and somatic approaches. She works from a liberation-focused lens and believes healing happens in relationship, with ourselves, with others, with our bodies.",
       metaItems: ["~1000 hrs counselling", "English · Hindi · Marathi", "online only"],
       active: true
     },
@@ -157,7 +178,7 @@ const CONTENT = {
       avatarColor: "#72243E",
       imagePath: "juhi.jpg",
       tags: ["identity & self", "relationships", "trauma", "emotional burnout", "existential", "attachment", "schema therapy"],
-      bio: "MSc in Clinical Psychology from Christ University. Juhi identifies with the wounded healer — what she's carried personally doesn't sit separate from her work, it sharpens it. She draws from Transactional Analysis, Schema Therapy, Gestalt, ACT and Somatic approaches. Her therapy is like a road trip: destination agreed on, but detours are welcome. 3 in 8 slots are concessional — intentionally.",
+      bio: "MSc in Clinical Psychology from Christ University. Juhi identifies with the wounded healer, what she's carried personally doesn't sit separate from her work, it sharpens it. She draws from Transactional Analysis, Schema Therapy, Gestalt, ACT and Somatic approaches. Her therapy is like a road trip: destination agreed on, but detours are welcome. 3 in 8 slots are concessional, intentionally.",
       metaItems: ["15–20 slots/week", "English · Hindi · Kutchi", "online only"],
       active: true
     },
@@ -176,7 +197,7 @@ const CONTENT = {
       avatarColor: "#2A5C0A",
       imagePath: "pravalika-buddha.jpg",
       tags: ["cPTSD", "queer folx", "neurodivergent", "grief", "dissociation", "anxiety", "decolonised lens"],
-      bio: "Anti-capitalist, neurodivergent, queer therapist from an OBC background. Pravalika identifies as Anti-caste and is a survivor of abuse with lived experience of CPTSD and chronic depression. MSc from IIPR. Her approach is relational and non-directive — she relies on forming deep relationships to create corrective experiences. She brings community, art and plants into her therapy room.",
+      bio: "Anti-capitalist, neurodivergent, queer therapist from an OBC background. Pravalika identifies as Anti-caste and is a survivor of abuse with lived experience of CPTSD and chronic depression. MSc from IIPR. Her approach is relational and non-directive, she relies on forming deep relationships to create corrective experiences. She brings community, art and plants into her therapy room.",
       metaItems: ["400+ hrs · 20 hrs group therapy", "Telugu · Hindi · English", "Online & offline · HSR Bangalore"],
       active: true
     },
@@ -195,7 +216,7 @@ const CONTENT = {
       avatarColor: "#27500A",
       imagePath: "preksha-porwal.jpg",
       tags: ["grief & loss", "identity", "neurodivergence", "family dynamics", "expressive arts", "children & adolescents"],
-      bio: "Counselling psychologist and Expressive Arts Facilitator, based in Pune. Works with children, adolescents, and young adults across schools, NGOs, and private practice. Integrative — person-centred and psychodynamic at the core, with art, movement, play and writing woven in. She'll probably invite creative work at some point. Always an invitation. Never an expectation.",
+      bio: "Counselling psychologist and Expressive Arts Facilitator, based in Pune. Works with children, adolescents, and young adults across schools, NGOs, and private practice. Integrative, person-centred and psychodynamic at the core, with art, movement, play and writing woven in. She'll probably invite creative work at some point. Always an invitation. Never an expectation.",
       metaItems: ["MSc Counselling Psychology 2023", "English · Hindi", "Google Meet"],
       active: true
     },
@@ -214,7 +235,7 @@ const CONTENT = {
       avatarColor: "#0F6E56",
       imagePath: "shraddha-litoriya.jpg",
       tags: ["CPTSD", "chronic pain", "narcissistic abuse", "somatic", "therapeutic movement", "neurodivergent HSP"],
-      bio: "Neurodivergent, Highly Sensitive Person, and deeply anti-discriminatory. Shraddha lives with CPTSD, fibromyalgia, and migraines — these experiences have made her a more grounded therapist, not despite them but through them. Eclectic, trauma-informed, drawing from narrative, somatic, movement-based, and dynamic frameworks. Also offers short-term therapeutic movement sessions for chronic pain.",
+      bio: "Neurodivergent, Highly Sensitive Person, and deeply anti-discriminatory. Shraddha lives with CPTSD, fibromyalgia, and migraines, and these experiences have made her a more grounded therapist, not despite them but through them. Eclectic, trauma-informed, drawing from narrative, somatic, movement-based, and dynamic frameworks. Also offers short-term therapeutic movement sessions for chronic pain.",
       metaItems: ["3 years experience", "Hindi · English", "Google Meet"],
       active: true
     },
@@ -233,7 +254,7 @@ const CONTENT = {
       avatarColor: "#3C3489",
       imagePath: "vipasha.jpg",
       tags: ["feminist therapy", "REBT", "narrative", "identity", "inclusive practice", "humanistic"],
-      bio: "MSc in Applied Clinical Psychology, also counselling psychologist at a college. Takes an eclectic feminist approach rooted in inclusion — deep commitment to consent and confidentiality at every step. Cares about making care genuinely accessible: 45-minute sessions, sliding scale, honest about what she can and can't do. Loves science, music, nature, art, furniture, and animals.",
+      bio: "MSc in Applied Clinical Psychology, also counselling psychologist at a college. Takes an eclectic feminist approach rooted in inclusion, with a deep commitment to consent and confidentiality at every step. Cares about making care genuinely accessible: 45-minute sessions, sliding scale, honest about what she can and can't do. Loves science, music, nature, art, furniture, and animals.",
       metaItems: ["200+ hours", "English · Gujarati · Hindi", "Google Meet · 45 min"],
       active: true
     }
@@ -242,16 +263,16 @@ const CONTENT = {
   // ─── FOOTER ──────────────────────────────────────────────────
   footer: {
     navLinks: [
-      { label: "About",       href: "#about" },
-      { label: "Therapists",  href: "#therapists" },
-      { label: "How it works",href: "#how-steps" },
-      { label: "Founder",     href: "#founder" },
-      { label: "Contact",     href: "#contact" }
+      { label: "About",        href: "#about" },
+      { label: "Therapists",   href: "#therapists" },
+      { label: "How it works", href: "#how-steps" },
+      { label: "Founder",      href: "#founder" },
+      { label: "Contact",      href: "#contact" }
     ],
     connectLinks: [
-      { label: "Instagram",         href: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl" },
-      { label: "Book a session",    href: "https://forms.gle/soFwpjkmvZtoqw766" },
-      { label: "Write to us",       href: "mailto:pohonchcares@gmail.com" }
+      { label: "Instagram",      href: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl" },
+      { label: "Book a session", href: "https://forms.gle/soFwpjkmvZtoqw766" },
+      { label: "Write to us",    href: "mailto:pohonchcares@gmail.com" }
     ],
     crisisLine1: "iCall 9152987821",
     crisisLine2: "Vandrevala 1860-2662-345",
