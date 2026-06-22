@@ -17,6 +17,10 @@ const CONTENT = {
   // ─── INQUIRY FORM ────────────────────────────────────────────
   inquiryFormUrl: "https://forms.gle/soFwpjkmvZtoqw766",
 
+  // ─── PROFILES PATH ───────────────────────────────────────────
+  // PDFs live at profiles/firstname-lastname.pdf on GitHub
+  profilesPath: "profiles",
+
   // ─── SOCIAL ──────────────────────────────────────────────────
   instagramUrl: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl",
   privacyUrl: "", // fill in when ready
@@ -79,6 +83,15 @@ const CONTENT = {
       role: "Founder. Lead Psychotherapist.",
       bio: "\"I named my practice Pohonch because I've always believed that access is the most vital, yet challenging part of healthcare in India. Building this team of therapists is a milestone towards my dream to make care accessible, within reach, and with lasting impact.\""
     }
+  },
+
+  // ─── CONSULT SECTION ─────────────────────────────────────────
+  consultSection: {
+    kicker: "before you begin",
+    heading: "Not sure who to start with? Book a 15-minute call with anyone.",
+    body: "Every therapist on Pohonch offers a short introductory consultation — a low-pressure way to hear their voice, ask your questions, and see if it feels right. You're interviewing them too.",
+    priceNote: "applied to your first session if you continue",
+    cta: "Book intro call"
   },
 
   // ─── UI STRINGS ──────────────────────────────────────────────
