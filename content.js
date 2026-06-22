@@ -90,7 +90,7 @@ const CONTENT = {
     kicker: "before you begin",
     heading: "Not sure who to start with? Book a 15-minute call with anyone.",
     body: "Every therapist on Pohonch offers a short introductory consultation — a low-pressure way to hear their voice, ask your questions, and see if it feels right. You're interviewing them too.",
-    priceNote: "applied to your first session if you continue",
+    priceNote: "upload a screenshot in the form to confirm",
     cta: "Book intro call"
   },
 
