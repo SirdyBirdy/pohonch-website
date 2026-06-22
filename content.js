@@ -241,6 +241,18 @@ const CONTENT = {
 
   // ─── FOOTER ──────────────────────────────────────────────────
   footer: {
+    navLinks: [
+      { label: "About",       href: "#about" },
+      { label: "Therapists",  href: "#therapists" },
+      { label: "How it works",href: "#how-steps" },
+      { label: "Founder",     href: "#founder" },
+      { label: "Contact",     href: "#contact" }
+    ],
+    connectLinks: [
+      { label: "Instagram",         href: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl" },
+      { label: "Book a session",    href: "https://forms.gle/soFwpjkmvZtoqw766" },
+      { label: "Write to us",       href: "mailto:pohonchcares@gmail.com" }
+    ],
     crisisLine1: "iCall 9152987821",
     crisisLine2: "Vandrevala 1860-2662-345",
     copyrightYear: "2025"
