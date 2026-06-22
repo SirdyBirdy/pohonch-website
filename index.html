@@ -1,693 +1,630 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>pohonch — a space to arrive</title>
-<meta name="description" content="A collective of independent therapists. Affirming, accessible, online — at your pace, in languages you actually think in.">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>pohonch — a quiet place to begin</title>
+<meta name="description" content="A small collective of independent therapists. Affirming, accessible, sliding scale — online, at your pace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter+Tight:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
+:root{
+  --paper:  #f1ece0;
+  --paper-2:#e7e0cd;
+  --paper-3:#ddd4bc;
+  --ink:    #1d231d;
+  --ink-s:  #3b423a;
+  --moss:   #6a7d54;
+  --moss-d: #3a4632;
+  --moss-b: #8aa067;
+  --clay:   #b8674a;
+  --ochre:  #c79a4a;
+  --stone:  #a8a08a;
+  --rule:   #c9bfa6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* ══════════════════════════════════════════
-   RESET
-══════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-img  { display: block; max-width: 100%; }
-a    { color: inherit; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: #F5F2EB;
-  color: #1A2610;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+/* paper grain + ambient glow */
+body{background-image:
+  radial-gradient(1200px 600px at 85% -10%,rgba(106,125,84,.18),transparent 60%),
+  radial-gradient(900px 500px at -10% 30%,rgba(184,103,74,.10),transparent 60%),
+  radial-gradient(800px 500px at 110% 70%,rgba(106,125,84,.14),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.32;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1 0 0 0 0 .12 0 0 0 0 .1 0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
-/* ══════════════════════════════════════════
-   TOKENS
-══════════════════════════════════════════ */
-:root {
-  --cream:     #F5F2EB;
-  --bark:      #1A2610;
-  --moss:      #2F4820;
-  --moss-mid:  #3D5E2A;
-  --moss-lite: #4A7235;
-  --sage:      #6E9060;
-  --sage-light:#B8D4A8;
-  --sage-pale: #EBF0E4;
-  --lichen:    #D6D1C4;
-  --stone:     #6E6860;
-  --amber:     #B87820;
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Fraunces",Georgia,serif;font-weight:340;letter-spacing:-.01em}
+.hand{font-family:"Caveat",cursive;color:var(--moss-d)}
 
-  /* side padding scales with viewport */
-  --px: 20px;
-  --py: 52px;
-}
-@media (min-width: 640px)  { :root { --px: 36px; } }
-@media (min-width: 1024px) { :root { --px: 72px;  --py: 80px; } }
-@media (min-width: 1440px) { :root { --px: 100px; --py: 96px; } }
+/* floating botanicals */
+.botanical{position:fixed;pointer-events:none;z-index:0}
+.float-slow{animation:floaty 9s ease-in-out infinite}
+.sway{animation:sway 8s ease-in-out infinite;transform-origin:bottom center}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 
-/* ══════════════════════════════════════════
-   TYPOGRAPHY UTILS
-══════════════════════════════════════════ */
-.eyebrow {
-  display: block;
-  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--sage); margin-bottom: 14px;
-}
-.section-h {
-  font-family: 'Lora', serif; font-weight: 400;
-  font-size: clamp(22px, 3.5vw, 32px);
-  line-height: 1.2; color: var(--bark);
-}
-.body-s { font-size: 14px; color: var(--stone); line-height: 1.85; }
+/* ── NAV ── */
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;position:relative;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:400;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-s)}
+.nav-links a{text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--moss-d)}
+.nav-cta{font-size:14px;border:1px solid var(--ink);padding:10px 18px;border-radius:999px;text-decoration:none;background:var(--ink);color:var(--paper);display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+.nav-cta:hover{background:var(--moss-d)}
 
-/* ══════════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════════ */
-.btn {
-  display: inline-block; text-decoration: none;
-  font-size: 12px; letter-spacing: .06em;
-  padding: 12px 24px;
-  border: 1px solid transparent;
-  transition: background .18s, color .18s, border-color .18s;
-  white-space: nowrap; cursor: pointer;
-}
-.btn-moss   { background: var(--moss);       color: var(--cream); border-color: var(--moss); }
-.btn-moss:hover { background: var(--moss-mid); border-color: var(--moss-mid); }
-.btn-sage   { background: var(--sage-light); color: var(--bark);  border-color: var(--sage-light); font-weight: 500; }
-.btn-sage:hover { background: #a4c494; border-color: #a4c494; }
-.btn-line-dark  { background: transparent; color: var(--bark);        border-color: var(--lichen); }
-.btn-line-dark:hover  { border-color: var(--sage); color: var(--moss); }
-.btn-line-light { background: transparent; color: var(--sage-light);  border-color: rgba(184,212,168,.35); }
-.btn-line-light:hover { background: rgba(184,212,168,.08); border-color: var(--sage-light); }
-.btn-ghost  { background: transparent; color: rgba(255,255,255,.55); border-color: rgba(255,255,255,.18); }
-.btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,.45); }
-.link-u {
-  font-size: 12px; color: var(--stone); letter-spacing: .05em;
-  text-decoration: none; border-bottom: 1px solid var(--lichen); padding-bottom: 1px;
-}
+/* ── HERO ── */
+.hero{padding:48px 0 100px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
+h1{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(48px,7vw,100px);line-height:.96;letter-spacing:-.028em;margin:0;position:relative}
+h1 em{font-style:italic;color:var(--moss-d);font-variation-settings:"SOFT" 100}
+h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
+.hero .lede{font-size:17px;color:var(--ink-s);max-width:44ch;margin:28px 0 0;line-height:1.65}
+.hero-meta{display:flex;gap:22px;margin-top:26px;font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.13em;flex-wrap:wrap}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.handnote{margin-top:44px;max-width:360px}
+.handnote .hand{font-size:21px;transform:rotate(-2deg);display:inline-block;line-height:1.4}
 
-/* ══════════════════════════════════════════
-   NAV — sticky, bark
-══════════════════════════════════════════ */
-.nav {
-  position: sticky; top: 0; z-index: 300;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 56px; padding: 0 var(--px);
-  background: var(--bark);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.nav-logo {
-  font-family: 'Lora', serif; font-size: 18px; letter-spacing: .05em;
-  color: var(--cream); text-decoration: none; flex-shrink: 0;
-}
-.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-.nav-links a {
-  font-size: 11.5px; letter-spacing: .07em;
-  color: rgba(255,255,255,.38); text-decoration: none;
-  transition: color .15s;
-}
-.nav-links a:hover { color: rgba(255,255,255,.7); }
-.nav-cta { color: var(--sage-light) !important; }
-.nav-hide { display: none; }
-@media (min-width: 640px) { .nav-hide { display: list-item; } }
+/* hero right — contemplative illustration */
+.hero-art{position:relative;height:440px;width:100%;display:flex;align-items:center;justify-content:center}
 
-/* ══════════════════════════════════════════
-   HERO
-══════════════════════════════════════════ */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr;   /* mobile: stacked */
-}
-@media (min-width: 768px) {
-  .hero { grid-template-columns: 3fr 2fr; min-height: 480px; }
-}
-@media (min-width: 1024px) { .hero { min-height: 540px; } }
-@media (min-width: 1440px) { .hero { min-height: 600px; } }
+/* ── DIVIDER ── */
+.divider{display:flex;align-items:center;gap:18px;color:var(--moss);margin:80px 0 36px;position:relative}
+.div-label{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss-d);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.div-squiggle{flex:1;height:14px}
 
-/* left — cream */
-.hero-text {
-  background: var(--cream);
-  padding: var(--py) var(--px) 48px;
-  display: flex; flex-direction: column; justify-content: flex-end;
-}
-.hero-kicker {
-  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--amber); margin-bottom: 18px;
-}
-.hero-h1 {
-  font-family: 'Lora', serif; font-weight: 400;
-  font-size: clamp(36px, 6.5vw, 68px);
-  line-height: 1.05; color: var(--bark); margin-bottom: 20px;
-}
-.hero-h1 em { font-style: italic; color: var(--moss-lite); }
-.hero-sub {
-  font-size: 15px; color: var(--stone); line-height: 1.8;
-  max-width: 400px; margin-bottom: 32px;
-}
-.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+/* ── ABOUT / NOTE ── */
+.note{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;position:relative}
+.note h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:0;letter-spacing:-.018em}
+.note p{font-size:16px;color:var(--ink-s);max-width:56ch;margin:0 0 16px}
+.note .aside{font-size:14px;color:var(--moss-d);background:rgba(106,125,84,.10);padding:14px 18px;border-radius:10px;margin-top:6px;display:flex;gap:12px;align-items:flex-start;line-height:1.5}
+.note .aside svg{flex-shrink:0;margin-top:2px}
 
-/* right — dark with ripple */
-.hero-panel {
-  background: var(--bark);
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 32px var(--px);
-  min-height: 200px;
-}
-@media (min-width: 768px) { .hero-panel { padding: 32px; min-height: auto; } }
-#ripple-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-pills {
-  position: relative; z-index: 2;
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.hero-pill {
-  font-size: 11px; letter-spacing: .07em;
-  color: rgba(255,255,255,.45);
-  border: .5px solid rgba(255,255,255,.1);
-  padding: 7px 14px;
-}
+/* values */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:44px 0 0}
+.val{background:var(--paper-2);border:1px solid var(--rule);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.val:hover{transform:translateY(-3px);box-shadow:0 14px 40px -18px rgba(31,36,31,.2)}
+.val .ico{margin-bottom:14px;display:block}
+.val h4{font-family:"Fraunces",serif;font-weight:380;font-size:17px;margin:0 0 6px;letter-spacing:-.01em}
+.val p{margin:0;font-size:13px;color:var(--ink-s);line-height:1.5}
+.val::after{content:"";position:absolute;right:-28px;bottom:-28px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(106,125,84,.16),transparent 70%)}
 
-/* ══════════════════════════════════════════
-   TICKER — same dark bark, flush to hero
-══════════════════════════════════════════ */
-.ticker {
-  background: var(--bark);
-  border-top: 1px solid rgba(255,255,255,.07);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  overflow: hidden; height: 40px;
-  display: flex; align-items: center;
-}
-.ticker-track {
-  display: flex; align-items: center;
-  white-space: nowrap;
-  animation: ticker 38s linear infinite;
-}
-.ticker-item {
-  font-size: 10.5px; letter-spacing: .14em;
-  color: rgba(255,255,255,.3); padding: 0 22px;
-}
-.ticker-dot { color: var(--amber); opacity: .5; font-size: 7px; padding: 0 2px; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* ── HOW ── */
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-radius:16px;overflow:hidden;margin-top:0}
+.how-step{background:var(--paper-2);padding:28px 24px}
+.step-n{font-family:"Fraunces",serif;font-size:36px;color:var(--rule);line-height:1;margin-bottom:16px;display:block}
+.step-t{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.step-b{font-size:13px;color:var(--ink-s);line-height:1.75;margin:0}
+.how-cta{display:flex;justify-content:center;margin-top:36px}
 
-/* ══════════════════════════════════════════
-   PHILOSOPHY — moss green
-══════════════════════════════════════════ */
-.philosophy {
-  background: var(--moss);
-  padding: var(--py) var(--px);
-}
-.philosophy-inner {
-  display: grid; grid-template-columns: 1fr; gap: 40px;
-}
-@media (min-width: 768px) {
-  .philosophy-inner { grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-}
-.phil-quote {
-  font-family: 'Lora', serif; font-style: italic; font-weight: 400;
-  font-size: clamp(18px, 2.4vw, 24px);
-  line-height: 1.6; color: var(--cream);
-}
-.phil-quote::before { content: '\201C'; }
-.phil-quote::after  { content: '\201D'; }
-.phil-attr {
-  display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--sage-light); opacity: .55; margin-top: 20px;
-}
-.phil-body { display: flex; flex-direction: column; gap: 14px; }
-.phil-body p { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.85; }
+/* ── TEAM ── */
+.team-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:36px;flex-wrap:wrap}
+.team-head h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(32px,4vw,48px);margin:0;letter-spacing:-.022em;line-height:1.05}
+.team-head h2 em{font-style:italic;color:var(--moss-d)}
+.team-head p{margin:0;color:var(--ink-s);font-size:15px;max-width:36ch}
 
-/* ══════════════════════════════════════════
-   ABOUT
-══════════════════════════════════════════ */
-.about { display: grid; grid-template-columns: 1fr; }
-@media (min-width: 768px)  { .about { grid-template-columns: 280px 1fr; } }
-@media (min-width: 1024px) { .about { grid-template-columns: 320px 1fr; } }
-@media (min-width: 1280px) { .about { grid-template-columns: 360px 1fr; } }
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:var(--paper-2);border:1px solid var(--rule);border-radius:18px;padding:26px;display:grid;grid-template-columns:120px 1fr;gap:22px;position:relative;transition:transform .3s,box-shadow .3s;overflow:hidden}
+.card::before{content:"";position:absolute;left:-28px;top:-28px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(106,125,84,.22),transparent 70%);pointer-events:none}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 50px -22px rgba(31,36,31,.25)}
+.portrait{width:120px;height:148px;border-radius:14px;overflow:hidden;position:relative;flex-shrink:0}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:top}
+.portrait .ring{position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 -36px 36px -18px rgba(31,36,31,.25)}
+.portrait .leaf-d{position:absolute;bottom:-6px;right:-6px;opacity:.9}
+.portrait-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:28px;color:rgba(31,36,31,.35)}
+.corner-note{position:absolute;top:14px;right:18px;font-family:"Caveat",cursive;color:var(--clay);font-size:17px;transform:rotate(3deg);z-index:2;line-height:1}
+.card h3{font-family:"Fraunces",serif;font-weight:380;font-size:23px;margin:0 0 3px;letter-spacing:-.012em}
+.card-role{font-size:12.5px;color:var(--moss-d);letter-spacing:.04em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-role::before{content:"";width:12px;height:1px;background:var(--moss)}
+.card-bio{font-size:13.5px;color:var(--ink-s);margin:0 0 14px;line-height:1.6;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tag{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--moss-d);background:rgba(106,125,84,.12);padding:4px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:5px}
+.tag::before{content:"";width:4px;height:4px;border-radius:99px;background:var(--moss)}
+.card-meta{font-size:11.5px;color:var(--stone);margin-bottom:14px;line-height:1.7}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:12.5px;padding:10px 16px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.btn-p{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-p:hover{background:var(--moss-d);border-color:var(--moss-d)}
+.btn-g{border-color:var(--ink);color:var(--ink)}
+.btn-g:hover{background:var(--ink);color:var(--paper)}
+.btn-moss{background:var(--moss-d);color:var(--paper);border-color:var(--moss-d)}
+.btn-moss:hover{background:var(--ink)}
 
-.about-sidebar {
-  padding: var(--py) var(--px);
-  background: var(--sage-pale);
-  border-bottom: 1px solid var(--lichen);
-}
-@media (min-width: 768px) {
-  .about-sidebar { border-bottom: none; border-right: 1px solid var(--lichen); }
-}
-.about-stats {
-  display: flex; gap: 28px;
-  margin-top: 28px; padding-top: 24px;
-  border-top: 1px solid var(--lichen);
-}
-@media (min-width: 768px) { .about-stats { flex-direction: column; gap: 16px; } }
-.stat-n {
-  font-family: 'Lora', serif; font-size: 26px;
-  color: var(--moss-lite); line-height: 1; display: block; margin-bottom: 3px;
-}
-.stat-l { font-size: 11px; color: var(--stone); letter-spacing: .06em; }
+/* ── QUOTE BAND ── */
+.quote-band{margin:80px 0 0;padding:64px 50px;background:linear-gradient(135deg,var(--moss-d),#2d3826);color:var(--paper);border-radius:24px;position:relative;overflow:hidden}
+.quote-band .leaves-bg{position:absolute;inset:0;opacity:.18;pointer-events:none;width:100%;height:100%}
+.quote-band blockquote{font-family:"Fraunces",serif;font-style:italic;font-weight:320;font-size:clamp(24px,3.2vw,38px);line-height:1.25;margin:0;max-width:34ch;letter-spacing:-.015em}
+.quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
 
-.about-main {
-  padding: var(--py) var(--px);
-  display: flex; flex-direction: column; gap: 20px;
-}
-.about-main p { font-size: 14px; color: var(--stone); line-height: 1.85; }
-.pullquote {
-  font-family: 'Lora', serif; font-style: italic;
-  font-size: 18px; line-height: 1.6; color: var(--bark);
-  padding: 16px 0 16px 20px; border-left: 2px solid var(--amber);
-}
-.founder-card {
-  display: flex; gap: 16px; align-items: flex-start;
-  padding: 20px; background: var(--cream); border: 1px solid var(--lichen);
-}
-.founder-av {
-  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-  background: var(--sage-light);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif; font-size: 15px; color: var(--moss);
-}
-.founder-name { font-family: 'Lora', serif; font-size: 14px; color: var(--bark); }
-.founder-role { font-size: 11px; color: var(--stone); letter-spacing: .05em; margin: 2px 0 8px; }
-.founder-bio  { font-size: 13px; color: var(--stone); line-height: 1.75; }
+/* ── FOUNDER ── */
+.founder-sec{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;margin:44px 0 0}
+.founder-art{aspect-ratio:4/5;border-radius:18px;background:
+  radial-gradient(60% 40% at 40% 30%,rgba(255,255,255,.22),transparent 60%),
+  linear-gradient(160deg,#8a9374,#5a6b4a 60%,#3a4632);
+  position:relative;overflow:hidden}
+.founder-art::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(to top,rgba(31,36,31,.42),transparent)}
+.founder-art .f-branch{position:absolute;top:-28px;right:-28px;opacity:.9}
+.founder-art .f-moss{position:absolute;bottom:-10px;left:-10px}
+.founder-sec h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(28px,3.5vw,44px);line-height:1.08;letter-spacing:-.022em;margin:0 0 18px}
+.founder-sec h2 em{font-style:italic;color:var(--moss-d)}
+.founder-sec p{font-size:16px;color:var(--ink-s);max-width:52ch;margin:0 0 16px;line-height:1.65}
+.pull{font-family:"Fraunces",serif;font-style:italic;font-size:20px;line-height:1.38;color:var(--moss-d);padding-left:20px;margin:22px 0;position:relative}
+.pull::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--moss-b),var(--moss-d));border-radius:2px}
 
-/* ══════════════════════════════════════════
-   HOW
-══════════════════════════════════════════ */
-.how {
-  background: #fff;
-  padding: var(--py) var(--px);
-  border-top: 1px solid var(--lichen);
-  border-bottom: 1px solid var(--lichen);
-}
-.how-header { margin-bottom: 40px; }
-.steps {
-  display: grid; grid-template-columns: 1fr;
-  gap: 1px; background: var(--lichen);
-}
-@media (min-width: 640px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-.step { background: #fff; padding: 28px 24px; }
-.step-num {
-  font-family: 'Lora', serif; font-size: 30px;
-  color: var(--lichen); line-height: 1; margin-bottom: 14px;
-}
-.step-title { font-size: 13px; font-weight: 500; color: var(--bark); margin-bottom: 8px; }
-.step-body  { font-size: 13px; color: var(--stone); line-height: 1.8; }
-.how-cta { margin-top: 36px; display: flex; justify-content: center; }
+/* ── FOOTER ── */
+footer{margin-top:100px;padding:64px 0 44px;position:relative}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'><path d='M0,28 Q150,6 300,28 T600,28 T900,28 T1200,28' stroke='%23c9bfa6' stroke-width='1.2' fill='none'/><path d='M0,38 Q150,16 300,38 T600,38 T900,38 T1200,38' stroke='%23c9bfa6' stroke-width='1' fill='none' opacity='.5'/></svg>") center/100% 100% no-repeat}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;align-items:start}
+.foot-grid h4{font-family:"Fraunces",serif;font-weight:380;font-size:28px;margin:0 0 12px;letter-spacing:-.015em;line-height:1.15}
+.foot-grid p{color:var(--ink-s);font-size:15px;margin:0 0 8px;max-width:34ch}
+.foot-list{list-style:none;padding:0;margin:0;font-size:14px;color:var(--ink-s);display:grid;gap:8px}
+.foot-list a{text-decoration:none;transition:color .15s}
+.foot-list a:hover{color:var(--moss-d)}
+.colophon{display:flex;justify-content:space-between;align-items:center;margin-top:48px;font-size:11.5px;color:var(--stone);letter-spacing:.05em;text-transform:uppercase;border-top:1px dashed var(--rule);padding-top:22px;flex-wrap:wrap;gap:10px}
+.colophon a{color:var(--moss-d);border-bottom:1px solid rgba(58,70,50,.3);padding-bottom:1px;text-transform:none;letter-spacing:0}
+.colophon a:hover{border-bottom-color:var(--moss-d)}
 
-/* ══════════════════════════════════════════
-   THERAPISTS
-══════════════════════════════════════════ */
-.therapists { padding: var(--py) var(--px); background: var(--cream); }
-.ts-header {
-  margin-bottom: 36px;
-  display: flex; flex-direction: column; gap: 10px;
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero,.note,.founder-sec,.foot-grid{grid-template-columns:1fr;gap:36px}
+  .team-grid{grid-template-columns:1fr}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .how-steps{grid-template-columns:1fr}
+  .card{grid-template-columns:90px 1fr;padding:20px}
+  .portrait{width:90px;height:112px}
+  .team-head{flex-direction:column;align-items:flex-start}
+  .quote-band{padding:44px 28px}
+  .hero-art{height:280px}
+  .nav-links{display:none}
+  h1{font-size:52px}
 }
-@media (min-width: 768px) {
-  .ts-header { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+@media(max-width:540px){
+  .wrap{padding:0 20px}
+  .values{grid-template-columns:1fr}
+  .quote-band{padding:36px 22px}
 }
-.ts-note { font-size: 13px; color: var(--stone); line-height: 1.7; max-width: 250px; }
-@media (min-width: 768px) { .ts-note { text-align: right; } }
-
-/* card */
-.card {
-  background: #fff; border: 1px solid var(--lichen);
-  margin-bottom: -1px;
-  display: flex; flex-direction: column;
-  transition: border-color .2s;
-}
-.card:hover { border-color: var(--sage); z-index: 1; position: relative; }
-@media (min-width: 640px) { .card { flex-direction: row; } }
-
-.card-side {
-  padding: 24px 20px;
-  display: flex; flex-direction: column; gap: 12px;
-}
-@media (max-width: 639px) { .card-side { border-bottom: 1px solid var(--lichen); } }
-@media (min-width: 640px)  { .card-side { width: 200px; flex-shrink: 0; border-right: 1px solid var(--lichen); } }
-@media (min-width: 1024px) { .card-side { width: 220px; } }
-
-.card-av {
-  width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif; font-size: 15px; overflow: hidden;
-}
-.card-av img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.card-name { font-family: 'Lora', serif; font-size: 15px; color: var(--bark); line-height: 1.2; }
-.card-pro  { font-size: 11px; color: var(--stone); margin-top: 1px; }
-.card-loc  { font-size: 12px; color: var(--stone); }
-.card-fee  { font-size: 13px; font-weight: 500; color: var(--bark); }
-.card-fee-u    { font-size: 10px; color: var(--stone); font-weight: 400; }
-.card-fee-note { font-size: 11px; color: var(--stone); margin-top: 2px; }
-.card-days     { font-size: 11.5px; color: var(--stone); }
-.card-days-n   { font-size: 10.5px; color: var(--stone); margin-top: 1px; }
-.card-book {
-  display: block; text-align: center; text-decoration: none;
-  font-size: 11.5px; letter-spacing: .05em;
-  padding: 10px 0; margin-top: auto;
-  border: 1px solid var(--moss); color: var(--moss);
-  transition: background .18s, color .18s;
-}
-.card-book:hover { background: var(--moss); color: var(--cream); }
-
-.card-main { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-.card-tag  { font-size: 10.5px; padding: 3px 10px; background: var(--sage-pale); color: var(--moss); }
-.card-bio  { font-size: 13.5px; color: var(--stone); line-height: 1.85; flex: 1; margin-bottom: 16px; }
-.card-meta {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  font-size: 11.5px; color: var(--stone);
-  padding-top: 14px; border-top: 1px solid var(--lichen);
-  margin-bottom: 16px;
-}
-.card-meta span::before { content: '· '; color: var(--lichen); }
-.card-meta span:first-child::before { content: ''; }
-.card-cta {
-  display: inline-block; text-decoration: none; align-self: flex-start;
-  font-size: 11.5px; letter-spacing: .05em; padding: 9px 18px;
-  background: var(--sage-pale); border: 1px solid var(--sage); color: var(--moss);
-  transition: background .18s, color .18s, border-color .18s;
-}
-.card-cta:hover { background: var(--moss); color: var(--cream); border-color: var(--moss); }
-
-/* ══════════════════════════════════════════
-   CTA BAND
-══════════════════════════════════════════ */
-.cta-band {
-  background: var(--bark);
-  border-top: 1px solid rgba(255,255,255,.06);
-  padding: var(--py) var(--px); text-align: center;
-}
-.cta-band-eyebrow {
-  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--sage); display: block; margin-bottom: 16px;
-}
-.cta-band-h {
-  font-family: 'Lora', serif; font-weight: 400;
-  font-size: clamp(24px, 4vw, 38px);
-  line-height: 1.2; color: var(--cream); margin-bottom: 12px;
-}
-.cta-band-h em { font-style: italic; color: var(--sage-light); }
-.cta-band-sub {
-  font-size: 14px; color: rgba(255,255,255,.4);
-  line-height: 1.8; max-width: 420px; margin: 0 auto 32px;
-}
-.cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
-
-/* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-.footer {
-  background: var(--bark);
-  border-top: 1px solid rgba(255,255,255,.06);
-  padding: var(--py) var(--px) 40px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 1fr; gap: 36px;
-  padding-bottom: 40px; margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-}
-@media (min-width: 640px)  { .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-.footer-brand { font-family: 'Lora', serif; font-size: 20px; color: var(--cream); letter-spacing: .05em; margin-bottom: 6px; }
-.footer-tag   { font-family: 'Lora', serif; font-style: italic; font-size: 12px; color: rgba(255,255,255,.22); }
-.footer-col-label {
-  display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.22); margin-bottom: 14px;
-}
-.footer-links { display: flex; flex-direction: column; gap: 8px; }
-.footer-links a { font-size: 13px; color: rgba(255,255,255,.42); text-decoration: none; transition: color .15s; }
-.footer-links a:hover { color: rgba(255,255,255,.75); }
-.footer-bot {
-  display: flex; flex-direction: column; gap: 6px;
-  font-size: 11px; color: rgba(255,255,255,.18);
-}
-@media (min-width: 640px) { .footer-bot { flex-direction: row; justify-content: space-between; } }
-
-/* ══════════════════════════════════════════
-   REDUCED MOTION
-══════════════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
-
 </style>
 </head>
 <body>
 
+<!-- fixed botanicals -->
+<svg class="botanical float-slow" style="top:70px;right:3.5%;width:88px;height:88px" viewBox="0 0 100 100" fill="none">
+  <path d="M50 95 V40" stroke="#6a7d54" stroke-width="1.4"/>
+  <path d="M50 60 C30 55,20 40,18 25 C35 30,45 45,50 60Z" fill="#8aa067" opacity=".82"/>
+  <path d="M50 50 C70 45,80 30,82 15 C65 20,55 35,50 50Z" fill="#6a7d54" opacity=".88"/>
+  <circle cx="50" cy="35" r="3" fill="#b8674a"/>
+</svg>
+<svg class="botanical sway" style="top:220px;left:.8%;width:66px;height:115px" viewBox="0 0 70 120" fill="none">
+  <path d="M35 120 V30" stroke="#3a4632" stroke-width="1.2"/>
+  <ellipse cx="20" cy="72" rx="14" ry="6" transform="rotate(-30 20 72)" fill="#6a7d54" opacity=".8"/>
+  <ellipse cx="50" cy="52" rx="14" ry="6" transform="rotate(30 50 52)" fill="#8aa067" opacity=".8"/>
+  <ellipse cx="22" cy="37" rx="10" ry="5" transform="rotate(-25 22 37)" fill="#6a7d54" opacity=".7"/>
+</svg>
+<svg class="botanical sway" style="bottom:60px;right:1.5%;width:76px;height:135px" viewBox="0 0 80 140" fill="none">
+  <path d="M40 140 V32" stroke="#3a4632" stroke-width="1.4"/>
+  <path d="M40 100 C15 95,6 76,6 56 C28 61,42 80,40 100Z" fill="#6a7d54" opacity=".82"/>
+  <path d="M40 76 C65 70,74 50,74 30 C52 36,38 56,40 76Z" fill="#8aa067" opacity=".82"/>
+  <circle cx="40" cy="32" r="4" fill="#b8674a"/>
+</svg>
+
+<div class="wrap">
+
 <!-- NAV -->
-<nav class="nav">
-  <a href="#" class="nav-logo" id="nav-logo"></a>
-  <ul class="nav-links" id="nav-links"></ul>
+<nav>
+  <a href="#" class="logo" id="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a4632" stroke-width="1.5" stroke-linecap="round">
+      <path d="M12 22V10"/>
+      <path d="M12 14c-3-4-7-3-9-1 1 4 5 5 9 1z" fill="#8aa067" fill-opacity=".4"/>
+      <path d="M12 11c2.5-3.5 7-3 9-1-1 4-5 5-9 1z" fill="#6a7d54" fill-opacity=".5"/>
+    </svg>
+    pohonch
+  </a>
+  <div class="nav-links" id="nav-links-inner"></div>
+  <a class="nav-cta" id="nav-cta" href="#">
+    Begin ↗
+  </a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text" id="hero-text"></div>
-  <div class="hero-panel">
-    <canvas id="ripple-canvas"></canvas>
-    <div class="hero-pills" id="hero-pills"></div>
-  </div>
-</section>
-
-<!-- TICKER (dark, flush below hero) -->
-<div class="ticker"><div class="ticker-track" id="ticker-track"></div></div>
-
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-  <div class="philosophy-inner">
-    <div id="phil-left"></div>
-    <div class="phil-body" id="phil-right"></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-sidebar" id="about-sidebar"></div>
-  <div class="about-main"  id="about-main"></div>
-</section>
-
-<!-- HOW -->
-<section class="how" id="how">
-  <div class="how-header">
-    <span class="eyebrow" id="how-eyebrow"></span>
-    <h2 class="section-h" id="how-title"></h2>
-  </div>
-  <div class="steps" id="steps"></div>
-  <div class="how-cta">
-    <a class="btn btn-moss" id="how-cta" href="#">find your therapist ↗</a>
-  </div>
-</section>
-
-<!-- THERAPISTS -->
-<section class="therapists" id="therapists">
-  <div class="ts-header">
-    <div>
-      <span class="eyebrow">our therapists</span>
-      <h2 class="section-h">people you can actually<br>get to know before you book</h2>
+  <div>
+    <h1 id="hero-h1"></h1>
+    <p class="lede" id="hero-lede"></p>
+    <div class="hero-meta" id="hero-meta"></div>
+    <div class="handnote">
+      <div class="hand" id="hero-hand"></div>
+      <svg width="110" height="28" viewBox="0 0 120 30" style="display:block;margin-top:4px" fill="none">
+        <path d="M5 15 Q40 5,80 18 T115 12" stroke="#6a7d54" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M110 8 L115 12 L110 17" stroke="#6a7d54" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
     </div>
-    <p class="ts-note">Read at whatever pace feels right. Each therapist has shared who they are and how they work.</p>
   </div>
-  <div id="cards"></div>
+
+  <!-- Hero: contemplative night-garden illustration -->
+  <div class="hero-art">
+    <svg viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;max-height:440px">
+      <!-- sky wash -->
+      <rect width="480" height="440" fill="#e8e2d4" rx="20"/>
+      <radial-gradient id="moonGlow" cx="50%" cy="28%" r="38%">
+        <stop offset="0%" stop-color="#f7f3e8" stop-opacity=".9"/>
+        <stop offset="100%" stop-color="#e8e2d4" stop-opacity="0"/>
+      </radial-gradient>
+      <ellipse cx="240" cy="122" rx="170" ry="130" fill="url(#moonGlow)"/>
+
+      <!-- distant hills -->
+      <path d="M-10 320 Q80 240,160 260 Q240 278,320 248 Q400 220,490 260 L490 440 L-10 440Z" fill="#c5bda8"/>
+      <path d="M-10 350 Q60 290,140 310 Q220 328,300 304 Q380 282,490 305 L490 440 L-10 440Z" fill="#bab3a0"/>
+
+      <!-- ground -->
+      <path d="M-10 390 Q120 370,240 378 Q360 386,490 368 L490 440 L-10 440Z" fill="#a8a090"/>
+      <path d="M-10 410 Q120 398,240 404 Q360 410,490 400 L490 440 L-10 440Z" fill="#9a9484"/>
+
+      <!-- moon -->
+      <circle cx="320" cy="90" r="34" fill="#f0ead8"/>
+      <circle cx="320" cy="90" r="34" fill="none" stroke="#e0d8c8" stroke-width="1"/>
+      <!-- subtle moon texture -->
+      <circle cx="312" cy="82" r="5" fill="#e8e0cc" opacity=".6"/>
+      <circle cx="328" cy="100" r="3.5" fill="#e8e0cc" opacity=".5"/>
+      <circle cx="308" cy="97" r="2.5" fill="#e8e0cc" opacity=".4"/>
+
+      <!-- moon glow ring -->
+      <circle cx="320" cy="90" r="46" fill="none" stroke="#f0ead8" stroke-width="1" opacity=".35"/>
+      <circle cx="320" cy="90" r="58" fill="none" stroke="#f0ead8" stroke-width=".6" opacity=".2"/>
+
+      <!-- stars -->
+      <g opacity=".5">
+        <circle cx="80"  cy="55"  r="1.2" fill="#8a8070"/>
+        <circle cx="145" cy="38"  r="1"   fill="#8a8070"/>
+        <circle cx="200" cy="65"  r="1.5" fill="#8a8070"/>
+        <circle cx="56"  cy="90"  r="1"   fill="#8a8070"/>
+        <circle cx="170" cy="44"  r="1.2" fill="#8a8070"/>
+        <circle cx="390" cy="48"  r="1"   fill="#8a8070"/>
+        <circle cx="418" cy="72"  r="1.3" fill="#8a8070"/>
+        <circle cx="110" cy="110" r="1"   fill="#8a8070"/>
+        <circle cx="240" cy="50"  r=".8"  fill="#8a8070"/>
+      </g>
+
+      <!-- tall grass, left -->
+      <g stroke="#5a6b4a" stroke-linecap="round">
+        <path d="M30 440 Q26 380,34 320 Q36 300,30 270" stroke-width="1.5"/>
+        <path d="M22 440 Q24 390,18 340 Q16 310,22 280" stroke-width="1.2"/>
+        <path d="M42 440 Q46 400,40 355 Q38 330,44 300" stroke-width="1"/>
+        <!-- grass leaves -->
+        <path d="M30 340 C10 330,4 310,6 295 C22 300,30 320,30 340Z" fill="#6a7d54" stroke="none"/>
+        <path d="M34 300 C52 294,60 276,58 260 C44 266,34 284,34 300Z" fill="#8aa067" stroke="none"/>
+        <path d="M22 360 C8 352,2 338,4 324 C14 328,22 342,22 360Z" fill="#6a7d54" stroke="none"/>
+      </g>
+
+      <!-- tall grass, right -->
+      <g stroke="#5a6b4a" stroke-linecap="round">
+        <path d="M445 440 Q448 378,440 318 Q438 296,445 264" stroke-width="1.5"/>
+        <path d="M455 440 Q452 392,458 342 Q460 314,454 282" stroke-width="1.2"/>
+        <path d="M435 440 Q432 404,436 358 Q438 332,432 302" stroke-width="1"/>
+        <path d="M445 332 C460 324,468 306,466 290 C452 294,444 314,445 332Z" fill="#6a7d54" stroke="none"/>
+        <path d="M440 294 C424 288,416 272,418 258 C430 262,440 278,440 294Z" fill="#8aa067" stroke="none"/>
+      </g>
+
+      <!-- mid tree, left -->
+      <path d="M110 440 V280" stroke="#3a4632" stroke-width="2" stroke-linecap="round"/>
+      <path d="M110 360 C72 350,50 320,46 290 C78 290,104 316,110 360Z" fill="#4a5c38" opacity=".9"/>
+      <path d="M110 320 C148 310,170 280,174 252 C144 254,112 276,110 320Z" fill="#5a6b48" opacity=".9"/>
+      <path d="M110 285 C82 276,66 250,68 230 C88 234,106 258,110 285Z" fill="#4a5c38" opacity=".8"/>
+      <!-- delicate branch -->
+      <path d="M110 310 Q92 298,80 304" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
+      <path d="M110 350 Q128 340,138 346" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
+
+      <!-- mid tree, right -->
+      <path d="M370 440 V290" stroke="#3a4632" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M370 370 C340 362,322 336,320 310 C346 312,366 336,370 370Z" fill="#4a5c38" opacity=".85"/>
+      <path d="M370 330 C398 320,416 296,416 270 C392 274,372 298,370 330Z" fill="#5a6b48" opacity=".85"/>
+
+      <!-- small wildflowers, foreground -->
+      <!-- flower 1 -->
+      <path d="M180 440 V408" stroke="#3a4632" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="180" cy="400" r="5" fill="#b8674a"/>
+      <circle cx="174" cy="395" r="4" fill="#c79a4a"/>
+      <circle cx="186" cy="395" r="4" fill="#c79a4a"/>
+      <circle cx="174" cy="405" r="4" fill="#c79a4a"/>
+      <circle cx="186" cy="405" r="4" fill="#c79a4a"/>
+      <circle cx="180" cy="400" r="2.2" fill="#f1ece0"/>
+      <!-- tiny leaf -->
+      <path d="M180 422 L172 418" stroke="#5a6b4a" stroke-width="1.2" stroke-linecap="round"/>
+
+      <!-- flower 2 -->
+      <path d="M295 440 V414" stroke="#3a4632" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="295" cy="408" r="4" fill="#c79a4a"/>
+      <circle cx="290" cy="403" r="3.5" fill="#b8674a"/>
+      <circle cx="300" cy="403" r="3.5" fill="#b8674a"/>
+      <circle cx="290" cy="413" r="3.5" fill="#b8674a"/>
+      <circle cx="300" cy="413" r="3.5" fill="#b8674a"/>
+      <circle cx="295" cy="408" r="2" fill="#f1ece0"/>
+      <path d="M295 424 L302 420" stroke="#5a6b4a" stroke-width="1.1" stroke-linecap="round"/>
+
+      <!-- moss patch -->
+      <ellipse cx="240" cy="432" rx="38" ry="8" fill="#5a6b4a" opacity=".5"/>
+      <circle cx="224" cy="428" r="4" fill="#8aa067" opacity=".8"/>
+      <circle cx="240" cy="425" r="3.5" fill="#8aa067" opacity=".8"/>
+      <circle cx="256" cy="428" r="4" fill="#6a7d54" opacity=".8"/>
+      <circle cx="214" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
+      <circle cx="266" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
+
+      <!-- firefly-like lights -->
+      <circle cx="155" cy="300" r="2.5" fill="#c79a4a" opacity=".6"/>
+      <circle cx="155" cy="300" r="5"   fill="#c79a4a" opacity=".15"/>
+      <circle cx="340" cy="330" r="2"   fill="#c79a4a" opacity=".5"/>
+      <circle cx="340" cy="330" r="4"   fill="#c79a4a" opacity=".12"/>
+      <circle cx="220" cy="355" r="1.8" fill="#c79a4a" opacity=".45"/>
+      <circle cx="220" cy="355" r="4"   fill="#c79a4a" opacity=".1"/>
+    </svg>
+  </div>
 </section>
 
-<!-- CTA BAND -->
-<section class="cta-band">
-  <span class="cta-band-eyebrow">ready when you are</span>
-  <h2 class="cta-band-h" id="cta-h"></h2>
-  <p class="cta-band-sub">Fill out the inquiry form and we'll help match you. No pressure, no commitment — just a conversation.</p>
-  <div class="cta-actions">
-    <a class="btn btn-sage"  id="cta-primary" href="#" target="_blank" rel="noopener">send us a message ↗</a>
-    <a class="btn btn-ghost" href="#therapists">browse therapists</a>
+<!-- DIVIDER 01 -->
+<div class="divider">
+  <span class="div-label">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    01 — about pohonch
+  </span>
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+    <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
+  </svg>
+</div>
+
+<!-- NOTE -->
+<section class="note" id="about">
+  <h2 id="note-h2"></h2>
+  <div id="note-right"></div>
+</section>
+
+<!-- VALUES -->
+<div class="values" id="values"></div>
+
+<!-- DIVIDER 02 - HOW -->
+<div class="divider">
+  <span class="div-label">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    02 — how it works
+  </span>
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+    <path d="M0 7 Q50 13,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
+  </svg>
+</div>
+
+<div class="how-steps" id="how-steps"></div>
+<div class="how-cta">
+  <a class="btn btn-p" id="how-cta-btn" href="#">Find your therapist
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
+  </a>
+</div>
+
+<!-- DIVIDER 03 - TEAM -->
+<div class="divider" id="therapists">
+  <span class="div-label">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    03 — the team
+  </span>
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+    <path d="M0 7 Q50 1,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
+  </svg>
+</div>
+
+<div class="team-head">
+  <h2>Find a therapist whose voice<br/>feels like a <em>soft place.</em></h2>
+  <p>Real people, different approaches. Read through, see whose voice you trust, and reach out directly.</p>
+</div>
+<div class="team-grid" id="team-grid"></div>
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <svg class="leaves-bg" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none">
+    <path d="M-50 250 Q200 180,400 230 T900 200 T1250 240" stroke="#f1ece0" stroke-width="1.2"/>
+    <ellipse cx="200" cy="220" rx="22" ry="8" transform="rotate(-20 200 220)" fill="#f1ece0"/>
+    <ellipse cx="500" cy="210" rx="20" ry="7" transform="rotate(15 500 210)" fill="#f1ece0"/>
+    <ellipse cx="850" cy="200" rx="24" ry="9" transform="rotate(-25 850 200)" fill="#f1ece0"/>
+    <ellipse cx="1100" cy="230" rx="18" ry="6" transform="rotate(20 1100 230)" fill="#f1ece0"/>
+    <circle cx="320" cy="180" r="5" fill="#f1ece0"/>
+    <circle cx="700" cy="170" r="4" fill="#f1ece0"/>
+    <circle cx="980" cy="190" r="5" fill="#f1ece0"/>
+  </svg>
+  <blockquote>"Healing isn't about becoming someone new. It's about finding the life that's already there — often, in unlikely places."</blockquote>
+  <cite>— a working note, pinned to our wall</cite>
+</section>
+
+<!-- DIVIDER 04 - FOUNDER -->
+<div class="divider" id="founder">
+  <span class="div-label">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
+    04 — the founder
+  </span>
+  <svg class="div-squiggle" viewBox="0 0 600 14" preserveAspectRatio="none" fill="none">
+    <path d="M0 7 Q50 13,100 7 T200 7 T300 7 T400 7 T500 7 T600 7" stroke="#6a7d54" stroke-width="1" opacity=".45"/>
+  </svg>
+</div>
+
+<section class="founder-sec">
+  <div class="founder-art">
+    <svg class="f-branch sway" width="110" height="110" viewBox="0 0 120 120" fill="none">
+      <path d="M60 120 V42" stroke="#3a4632" stroke-width="1.5"/>
+      <path d="M60 82 C30 77,14 57,12 32 C40 37,58 57,60 82Z" fill="#8aa067" opacity=".88"/>
+      <path d="M60 62 C90 57,106 37,108 12 C80 17,62 37,60 62Z" fill="#6a7d54" opacity=".88"/>
+      <circle cx="60" cy="42" r="4.5" fill="#b8674a"/>
+    </svg>
+    <svg class="f-moss" width="96" height="56" viewBox="0 0 100 60" fill="none">
+      <ellipse cx="50" cy="42" rx="44" ry="14" fill="#6a7d54" opacity=".55"/>
+      <circle cx="30" cy="32" r="5" fill="#8aa067"/>
+      <circle cx="50" cy="28" r="4" fill="#8aa067"/>
+      <circle cx="70" cy="34" r="5" fill="#6a7d54"/>
+      <circle cx="18" cy="36" r="3" fill="#8aa067"/>
+    </svg>
   </div>
+  <div id="founder-text"></div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-grid" id="footer-grid"></div>
-  <div class="footer-bot"  id="footer-bot"></div>
+<footer id="contact">
+  <div class="foot-grid" id="foot-grid"></div>
+  <div class="colophon" id="colophon"></div>
 </footer>
 
+</div><!-- /wrap -->
 <script src="content.js"></script>
 <script>
 const C = CONTENT, F = C.inquiryFormUrl;
 
-/* ── NAV ── */
-document.getElementById('nav-logo').textContent = C.siteName;
-document.getElementById('nav-links').innerHTML = `
-  <li class="nav-hide"><a href="#about">about</a></li>
-  <li class="nav-hide"><a href="#therapists">therapists</a></li>
-  <li class="nav-hide"><a href="#how">how it works</a></li>
-  <li><a class="nav-cta" href="${F}" target="_blank" rel="noopener">begin ↗</a></li>
-`;
+/* NAV */
+document.getElementById('nav-links-inner').innerHTML =
+  `<a href="#about">About</a><a href="#therapists">Therapists</a><a href="#founder">Founder</a><a href="#contact">Contact</a>`;
+document.getElementById('nav-cta').href = F;
 
-/* ── HERO ── */
+/* HERO */
 const H = C.hero;
-const hl = H.headline.map((l, i) =>
-  i === 1 ? l.replace(H.headlineEmphasisWord, `<em>${H.headlineEmphasisWord}</em>`) : l
-).join('<br>');
-document.getElementById('hero-text').innerHTML = `
-  <p class="hero-kicker">${H.kicker}</p>
-  <h1 class="hero-h1">${hl}</h1>
-  <p class="hero-sub">${H.subtext}</p>
-  <div class="hero-actions">
-    <a class="btn btn-moss" href="#therapists">${H.primaryCTA}</a>
-    <a class="link-u" href="#how">${H.secondaryCTA}</a>
-    <a class="btn btn-line-dark" href="${F}" target="_blank" rel="noopener">inquire now ↗</a>
-  </div>
-`;
-document.getElementById('hero-pills').innerHTML =
-  H.tags.map(t => `<span class="hero-pill">${t}</span>`).join('');
-
-/* ── TICKER ── */
-const seg = C.marqueeItems.map(s =>
-  `<span class="ticker-item">${s}</span><span class="ticker-dot">◆</span>`
+const dotColor = {moss:'#6a7d54', clay:'#b8674a', ochre:'#c79a4a'};
+document.getElementById('hero-h1').innerHTML = `${H.headlineTop}<br/><em>${H.headlineBottom}</em>
+  <svg class="sketch-line" height="14" viewBox="0 0 400 14" preserveAspectRatio="none">
+    <path d="M2 8 Q100 2,200 7 T398 6" stroke="#b8674a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>`;
+document.getElementById('hero-lede').textContent = H.subtext;
+document.getElementById('hero-meta').innerHTML = H.metaItems.map(m=>
+  `<span><svg width="9" height="9" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="${dotColor[m.dot]||'#6a7d54'}"/></svg>${m.text}</span>`
 ).join('');
-document.getElementById('ticker-track').innerHTML = seg + seg;
+document.getElementById('hero-hand').textContent = H.handNote;
 
-/* ── PHILOSOPHY ── */
-const PH = C.philosophy;
-document.getElementById('phil-left').innerHTML = `
-  <p class="phil-quote">${PH.quote}</p>
-  <span class="phil-attr">${PH.quoteAttribution}</span>
-  <a class="btn btn-line-light" href="${F}" target="_blank" rel="noopener"
-     style="margin-top:28px;align-self:flex-start">begin your inquiry ↗</a>
-`;
-document.getElementById('phil-right').innerHTML = `
-  <div class="phil-body">
-    ${PH.body.map(p => `<p>${p}</p>`).join('')}
-  </div>
-`;
+/* NOTE / ABOUT */
+const AB = C.about;
+document.getElementById('note-h2').textContent = "We are a few therapists who believe growth is gradual, organic, and rarely linear.";
+document.getElementById('note-right').innerHTML = `
+  <p>${AB.body}</p>
+  <p>${AB.bodyRight[0]}</p>
+  <p>${AB.bodyRight[1]}</p>
+  <div class="aside">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 18V8" stroke="#3a4632" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M10 12c-2-3-5-2-7-1 1 3 4 4 7 1z" fill="#6a7d54"/>
+      <path d="M10 10c2-3 5-2 7-1-1 3-4 4-7 1z" fill="#8aa067"/>
+    </svg>
+    ${AB.pullQuote}
+  </div>`;
 
-/* ── ABOUT ── */
-const AB = C.about, FO = AB.founder;
-document.getElementById('about-sidebar').innerHTML = `
-  <span class="eyebrow">${AB.label}</span>
-  <h2 class="section-h" style="margin-bottom:14px">${AB.heading}</h2>
-  <p class="body-s">${AB.body}</p>
-  <div class="about-stats">
-    ${AB.stats.map(s => `<div><span class="stat-n">${s.number}</span><span class="stat-l">${s.label}</span></div>`).join('')}
-  </div>
-`;
-document.getElementById('about-main').innerHTML = `
-  ${AB.bodyRight.map(p => `<p>${p}</p>`).join('')}
-  <blockquote class="pullquote">${AB.pullQuote}</blockquote>
-  <div class="founder-card">
-    <div class="founder-av">${FO.initials}</div>
-    <div>
-      <div class="founder-name">${FO.name}</div>
-      <div class="founder-role">${FO.role}</div>
-      <p class="founder-bio">${FO.bio}</p>
-    </div>
-  </div>
-  <div><a class="btn btn-moss" href="${F}" target="_blank" rel="noopener">send an inquiry ↗</a></div>
-`;
+/* VALUES */
+const vals = [
+  {svg:`<path d="M18 32V14" stroke="#3a4632" stroke-width="1.5"/><path d="M18 22c-5-5-12-3-15-1 2 6 9 7 15 1z" fill="#6a7d54"/><path d="M18 18c5-5 12-3 15-1-2 6-9 7-15 1z" fill="#8aa067"/>`,
+   h:"Life finds a way",p:"We meet the parts of you that have already been quietly resilient."},
+  {svg:`<path d="M4 22 Q12 18,18 22 T32 22" stroke="#6a7d54" stroke-width="1.6" fill="none"/><path d="M4 26 Q12 22,18 26 T32 26" stroke="#8aa067" stroke-width="1.4" fill="none"/><path d="M4 18 Q12 14,18 18 T32 18" stroke="#6a7d54" stroke-width="1.2" fill="none" opacity=".7"/>`,
+   h:"Slow on purpose",p:"No scripts, no rush. We move at the pace your nervous system can hold."},
+  {svg:`<circle cx="18" cy="18" r="6" fill="#b8674a"/><circle cx="10" cy="12" r="4" fill="#c79a4a"/><circle cx="26" cy="12" r="4" fill="#c79a4a"/><circle cx="10" cy="24" r="4" fill="#c79a4a"/><circle cx="26" cy="24" r="4" fill="#c79a4a"/><circle cx="18" cy="18" r="2" fill="#f1ece0"/>`,
+   h:"Soft, not perfect",p:"You don't have to arrive polished. The messy parts come too."},
+  {svg:`<path d="M6 30 Q18 4,30 30" stroke="#3a4632" stroke-width="1.5" fill="none"/><circle cx="18" cy="12" r="3" fill="#8aa067"/><path d="M14 30 L14 22" stroke="#6a7d54" stroke-width="1"/><path d="M22 30 L22 22" stroke="#6a7d54" stroke-width="1"/>`,
+   h:"Roots, not just leaves",p:"We work with what's beneath, gently and without urgency."}
+];
+document.getElementById('values').innerHTML = vals.map(v=>`
+  <div class="val">
+    <svg class="ico" width="36" height="36" viewBox="0 0 36 36" fill="none">${v.svg}</svg>
+    <h4>${v.h}</h4><p>${v.p}</p>
+  </div>`).join('');
 
-/* ── HOW ── */
+/* HOW */
 const HW = C.howItWorks;
-document.getElementById('how-eyebrow').textContent = HW.label;
-document.getElementById('how-title').textContent   = HW.heading;
-document.getElementById('steps').innerHTML = HW.steps.map(s => `
-  <div class="step">
-    <div class="step-num">${s.number}</div>
-    <div class="step-title">${s.title}</div>
-    <p class="step-body">${s.body}</p>
-  </div>
-`).join('');
-document.getElementById('how-cta').href = F;
+document.getElementById('how-steps').innerHTML = HW.steps.map(s=>`
+  <div class="how-step">
+    <span class="step-n">${s.number}</span>
+    <div class="step-t">${s.title}</div>
+    <p class="step-b">${s.body}</p>
+  </div>`).join('');
+document.getElementById('how-cta-btn').href = F;
 
-/* ── THERAPISTS ── */
-const cardsEl = document.getElementById('cards');
-C.therapists.filter(t => t.active).forEach(t => {
-  const av = t.imagePath
-    ? `<img src="images/${t.imagePath}" alt="${t.name}" onerror="this.parentElement.innerHTML='${t.avatarInitials}'">`
-    : t.avatarInitials;
-  cardsEl.insertAdjacentHTML('beforeend', `
-    <div class="card">
-      <div class="card-side">
-        <div class="card-av" style="background:${t.avatarBg};color:${t.avatarColor}">${av}</div>
-        <div><div class="card-name">${t.name}</div><div class="card-pro">${t.pronouns}</div></div>
-        <div class="card-loc">${t.location}</div>
-        <div>
-          <div class="card-fee">${t.fee} <span class="card-fee-u">${t.feeUnit}</span></div>
-          <div class="card-fee-note">${t.feeNote}</div>
-        </div>
-        <div>
-          <div class="card-days">${t.days}</div>
-          <div class="card-days-n">${t.daysNote}</div>
-        </div>
-        <a class="card-book" href="${F}" target="_blank" rel="noopener">inquire now ↗</a>
+/* THERAPIST CARDS */
+const portraitGrads = [
+  "linear-gradient(160deg,#c9c2ad,#9aa48a)",
+  "linear-gradient(160deg,#b89a78,#7a6248)",
+  "linear-gradient(160deg,#a8b497,#6e7e5a)",
+  "linear-gradient(160deg,#c9a079,#8a6a4a)",
+  "linear-gradient(160deg,#b8a898,#7a6a68)",
+  "linear-gradient(160deg,#a8b8a0,#6a7860)",
+  "linear-gradient(160deg,#c4b8a4,#8a7c70)"
+];
+const cornerNotes = ["a good listener","slow & steady","full of warmth","quietly brave","grounded & clear","still building","holds space well"];
+const leafDirs = [
+  "M25 30 C10 28,4 16,4 4 C20 8,28 18,25 30Z",
+  "M25 30 C40 28,46 16,46 4 C30 8,22 18,25 30Z",
+  "M25 30 C10 28,4 16,4 4 C20 8,28 18,25 30Z",
+  "M25 30 C40 28,46 16,46 4 C30 8,22 18,25 30Z",
+  "M25 30 C10 28,4 16,4 4 C20 8,28 18,25 30Z",
+  "M25 30 C40 28,46 16,46 4 C30 8,22 18,25 30Z",
+  "M25 30 C10 28,4 16,4 4 C20 8,28 18,25 30Z"
+];
+const grid = document.getElementById('team-grid');
+C.therapists.filter(t=>t.active).forEach((t,i)=>{
+  const portraitInner = t.imagePath
+    ? `<img src="images/${t.imagePath}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px" onerror="this.outerHTML='<div class=portrait-placeholder>${t.avatarInitials}</div>'">`
+    : `<div class="portrait-placeholder" style="background:${portraitGrads[i%portraitGrads.length]}">${t.avatarInitials}</div>`;
+  grid.insertAdjacentHTML('beforeend',`
+    <article class="card">
+      <span class="corner-note" style="${i%3===2?'color:var(--moss-d)':''}">${cornerNotes[i%cornerNotes.length]}</span>
+      <div class="portrait" style="background:${portraitGrads[i%portraitGrads.length]}">
+        ${portraitInner}
+        <div class="ring"></div>
+        <svg class="leaf-d" width="46" height="46" viewBox="0 0 50 50" fill="none">
+          <path d="${leafDirs[i%leafDirs.length]}" fill="#3a4632" opacity=".45"/>
+        </svg>
       </div>
-      <div class="card-main">
-        <div class="card-tags">${t.tags.map(g => `<span class="card-tag">${g}</span>`).join('')}</div>
+      <div>
+        <h3>${t.name}</h3>
+        <div class="card-role">${t.pronouns} · ${t.location}</div>
         <p class="card-bio">${t.bio}</p>
-        <div class="card-meta">${t.metaItems.map(m => `<span>${m}</span>`).join('')}</div>
-        <a class="card-cta" href="${F}" target="_blank" rel="noopener">book with ${t.name.split(' ')[0]} ↗</a>
+        <div class="tags">${t.tags.map(g=>`<span class="tag">${g}</span>`).join('')}</div>
+        <div class="card-meta">${t.fee} ${t.feeUnit} · ${t.days} · ${t.metaItems[1]}</div>
+        <div class="actions">
+          <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">
+            Book with ${t.name.split(' ')[0]}
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
+          </a>
+          <a class="btn btn-g" href="${F}" target="_blank" rel="noopener">Inquire</a>
+        </div>
       </div>
-    </div>
-  `);
+    </article>`);
 });
 
-/* ── CTA BAND ── */
-document.getElementById('cta-h').innerHTML =
-  `not sure who to choose?<br><em>that's completely okay.</em>`;
-document.getElementById('cta-primary').href = F;
+/* FOUNDER */
+const FO = AB.founder;
+document.getElementById('founder-text').innerHTML = `
+  <h2>A note from <em>${FO.name},</em><br/>who started Pohonch.</h2>
+  <p>${FO.bio}</p>
+  <div class="pull">"I see relationship with nature, gentleness, resilience, playfulness, and growth in unlikely places. That's what I want this practice to feel like."</div>
+  <p>If you're not sure who to book with, write to us and we'll help you find the right fit. There's no waiting room here, and no script.</p>
+  <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">Get in touch ↗</a>
+    <a class="btn btn-g" href="#therapists">Meet the team</a>
+  </div>`;
 
-/* ── FOOTER ── */
+/* FOOTER */
 const FT = C.footer;
-document.getElementById('footer-grid').innerHTML = `
+document.getElementById('foot-grid').innerHTML = `
   <div>
-    <div class="footer-brand">${C.siteName}</div>
-    <div class="footer-tag">${C.siteTagline}</div>
-    <a class="btn btn-moss" href="${F}" target="_blank" rel="noopener"
-       style="margin-top:24px;font-size:11px;padding:10px 20px">begin inquiry ↗</a>
+    <h4>Help is available<br/>whenever you are ready for it.</h4>
+    <p>Reach out, even if all you have is a sentence. We'll take it from there.</p>
+    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener" style="margin-top:20px;display:inline-flex">Begin ↗</a>
+    <svg style="margin-top:18px;display:block" width="130" height="36" viewBox="0 0 140 40" fill="none">
+      <path d="M5 20 Q40 5,80 25 T130 18" stroke="#6a7d54" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M125 13 L130 18 L125 23" stroke="#6a7d54" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
   </div>
-  <div>
-    <span class="footer-col-label">navigate</span>
-    <div class="footer-links">
-      ${FT.navLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
-    </div>
-  </div>
-  <div>
-    <span class="footer-col-label">connect</span>
-    <div class="footer-links">
-      ${FT.connectLinks.map(l =>
-        `<a href="${l.href}"${l.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`
-      ).join('')}
-    </div>
-  </div>
-`;
-document.getElementById('footer-bot').innerHTML = `
-  <span>© ${FT.copyrightYear} ${C.siteName}. all rights reserved.</span>
-  <span>crisis support: ${FT.crisisLine1} · ${FT.crisisLine2}</span>
-`;
+  <ul class="foot-list">
+    <li><strong style="color:var(--ink)">Navigate</strong></li>
+    ${FT.navLinks.map(l=>`<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+  </ul>
+  <ul class="foot-list">
+    <li><strong style="color:var(--ink)">Connect</strong></li>
+    ${FT.connectLinks.map(l=>`<li><a href="${l.href}"${l.href.startsWith('http')?' target="_blank" rel="noopener"':''}>${l.label}</a></li>`).join('')}
+    <li style="margin-top:4px;font-size:12px;color:var(--stone)">Crisis: ${FT.crisisLine1}</li>
+    <li style="font-size:12px;color:var(--stone)">${FT.crisisLine2}</li>
+  </ul>`;
 
-/* ── RIPPLE CANVAS ── */
-const rc = document.getElementById('ripple-canvas');
-const rx = rc.getContext('2d');
-const rp = rc.parentElement;
-function rzR() { rc.width = rp.offsetWidth; rc.height = rp.offsetHeight; }
-rzR(); window.addEventListener('resize', rzR);
-const rings = [];
-function spawnR() {
-  rings.push({
-    x: rc.width  * (.25 + Math.random() * .5),
-    y: rc.height * (.25 + Math.random() * .5),
-    r: 2, max: 60 + Math.random() * 50, spd: .12 + Math.random() * .1
-  });
-}
-for (let i = 0; i < 4; i++) { spawnR(); rings[i].r = rings[i].max * (i / 4); }
-setInterval(spawnR, 3200);
-(function drawR() {
-  rx.clearRect(0, 0, rc.width, rc.height);
-  rx.fillStyle = '#1A2610'; rx.fillRect(0, 0, rc.width, rc.height);
-  rings.forEach((r, i) => {
-    const a = .16 * (1 - r.r / r.max) ** 2;
-    rx.beginPath(); rx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
-    rx.strokeStyle = `rgba(110,144,96,${a})`; rx.lineWidth = 1; rx.stroke();
-    r.r += r.spd;
-    if (r.r > r.max) rings.splice(i, 1);
-  });
-  requestAnimationFrame(drawR);
-})();
+document.getElementById('colophon').innerHTML = `
+  <span>© Pohonch, ${FT.copyrightYear}</span>
+  <span class="hand" style="text-transform:none;letter-spacing:0;font-size:17px">made slowly, on purpose.</span>
+  <span>made with love by <a href="https://minimall.in" target="_blank" rel="noopener">Armeet</a></span>`;
 </script>
 </body>
 </html>
