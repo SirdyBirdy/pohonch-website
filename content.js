@@ -249,3 +249,4 @@ const CONTENT = {
 };
 
 // ─── DO NOT EDIT BELOW THIS LINE ──────────────────────────────
+if (typeof module !== 'undefined') module.exports = CONTENT;
