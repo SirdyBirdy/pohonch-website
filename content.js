@@ -10,29 +10,32 @@ const CONTENT = {
 
   // ─── SITE META ───────────────────────────────────────────────
   siteName: "pohonch",
-  siteTagline: "a space to arrive",
+  siteDomain: "pohonchcares.com",
+  siteTagline: "Help is available whenever you are ready for it",
   siteDescription: "A collective of independent therapists. Affirming, accessible, online — at your pace, in languages you actually think in.",
 
   // ─── INQUIRY FORM ────────────────────────────────────────────
-  // Google Form link used for ALL "book", "inquire", "begin" buttons
   inquiryFormUrl: "https://forms.gle/soFwpjkmvZtoqw766",
 
-  // ─── HERO SECTION ────────────────────────────────────────────
+  // ─── SOCIAL ──────────────────────────────────────────────────
+  instagramUrl: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl",
+  privacyUrl: "", // fill in when ready
+
+  // ─── HERO ────────────────────────────────────────────────────
   hero: {
-    kicker: "पहुँच · to arrive",
-    headline: ["growth happens", "in unlikely", "places."],
-    headlineEmphasisWord: "unlikely", // which word gets italic green styling
+    kicker: "पहोंच · to arrive",
+    headlineTop: "Care with Softness,",
+    headlineBottom: "Solidarity, Sovereignty",
     subtext: "A collective of independent therapists. Affirming, accessible, online — at your pace, in languages you actually think in.",
-    primaryCTA: "meet the team",
-    secondaryCTA: "how it works",
-    tags: [
-      "online sessions",
-      "₹500 sliding scale",
-      "hindi & english"
+    handNote: "It takes a lot to reach till here. We are glad you have.",
+    metaItems: [
+      { dot: "moss",  text: "Online & offline sessions" },
+      { dot: "clay",  text: "Sessions from ₹500 to ₹1600" },
+      { dot: "ochre", text: "English · Hindi · Marathi · Gujarati · Telugu" }
     ]
   },
 
-  // ─── MARQUEE STRIP ───────────────────────────────────────────
+  // ─── MARQUEE ─────────────────────────────────────────────────
   marqueeItems: [
     "affirming care",
     "sliding scale",
@@ -46,44 +49,40 @@ const CONTENT = {
     "real supervision"
   ],
 
-  // ─── PHILOSOPHY SECTION ──────────────────────────────────────
+  // ─── PHILOSOPHY ──────────────────────────────────────────────
   philosophy: {
-    quote: "pohonch — पहुँच — to arrive. not fixing, not performing wellness. just slowly, honestly, arriving.",
-    quoteAttribution: "on what we believe",
+    quote: "We encourage you to start, to access, experience presence, holding — and just slowly, together step into presence, acceptance, and a future where ease is not only possible, but awaits us.",
     body: [
-      "We see relationship with nature, gentleness, resilience, playfulness, and growth in unlikely places. Healing isn't about becoming someone new — it's about finding the life that already exists in you.",
-      "Help is available whenever you are ready for it."
+      "Our care is rooted in presence — like a quiet forest, steady and calming.",
+      "Give therapy and well-being a chance."
     ]
   },
 
-  // ─── ABOUT SECTION ───────────────────────────────────────────
+  // ─── ABOUT ───────────────────────────────────────────────────
   about: {
-    label: "who we are",
     heading: "a collective built on care, not scale",
     body: "Pohonch started from a belief that therapy shouldn't be a luxury — and that finding the right person should feel possible, not overwhelming.",
     stats: [
-      { number: "7", label: "therapists" },
-      { number: "6", label: "languages" },
+      { number: "7",    label: "therapists" },
+      { number: "5",    label: "languages" },
       { number: "₹500", label: "starting fee" }
     ],
     bodyRight: [
       "Every therapist here brings their full self: their lived experiences, their training, their way of seeing. We don't believe in blank-wall therapy. We believe in human beings meeting human beings.",
-      "All our therapists use sliding scale fees where possible, hold supervision, and are committed to affirming, consent-forward practice."
+      "We work with queer folks, survivors of gender-based violence, those with a history of childhood abuse, complex trauma, and chronic or invisible disabilities. We don't claim to know your experience, but we are here to create a supportive, respectful space as you explore your healing."
     ],
-    pullQuote: "We don't need to be perfect to belong. That's a lovely therapeutic stance.",
-    // Founder strip — leave empty strings if not yet ready
+    pullQuote: "All our therapists use sliding scale fees where possible, hold supervision, and are committed to affirming, consent-forward practice.",
     founder: {
       initials: "S",
       name: "Sindhu",
-      role: "founder · pohonch",
-      bio: "Pohonch started in February 2022. It began as one person's attempt to make ethical, quality mental health care feel possible — not like a luxury, not like a maze. Sindhu is still here, still practicing, still building."
+      pronouns: "they/them",
+      role: "Founder · Lead Psychotherapist",
+      bio: "\"I named my practice Pohonch because I've always believed that access is the most vital, yet challenging part of healthcare in India. Building this team of therapists is a milestone towards my dream to make care accessible — within reach, and with lasting impact.\""
     }
   },
 
   // ─── HOW IT WORKS ────────────────────────────────────────────
   howItWorks: {
-    label: "how it works",
-    heading: "three steps, no pressure",
     steps: [
       {
         number: "01",
@@ -104,14 +103,26 @@ const CONTENT = {
   },
 
   // ─── THERAPISTS ──────────────────────────────────────────────
-  // avatarInitials: shown if no image file found in /images/
-  // imagePath: file name inside /images/ folder (e.g. "aishwarya-temgire.jpg")
-  //            Leave as "" to show initials instead.
-  // feeNote: small text below the fee (e.g. "sliding scale")
-  // daysNote: small text below days (e.g. "9 slots/week")
-  // metaItems: up to 3 items shown at bottom of card (experience, languages, mode)
-
   therapists: [
+    {
+      id: "sindhu",
+      name: "Sindhu",
+      pronouns: "they/them",
+      location: "Pune · online & in-person",
+      fee: "₹1300–1600",
+      feeUnit: "/ session",
+      feeNote: "₹1850 in-person · ₹3000 abroad",
+      days: "Tue · Wed · Thu · Sat",
+      daysNote: "20 slots/week · 5/day",
+      avatarInitials: "S",
+      avatarBg: "#F0EDE4",
+      avatarColor: "#5C5035",
+      imagePath: "sindhu.jpg",
+      tags: ["complex trauma", "intimate partner violence", "grief", "anxiety", "depression", "self-harm", "anti-caste", "intersectional feminist"],
+      bio: "Sindhu (chosen name) is the founder of Pohonch — which began in February 2022 as their attempt to make ethical, quality mental health care accessible. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches.",
+      metaItems: ["3200+ hrs · Masters Clinical Psychology, Mumbai University 2021", "English · Marathi · Hindi", "Online (Google Meet) + in-person Pune"],
+      active: true
+    },
     {
       id: "aishwarya-temgire",
       name: "Aishwarya Temgire",
@@ -148,6 +159,25 @@ const CONTENT = {
       tags: ["identity & self", "relationships", "trauma", "emotional burnout", "existential", "attachment", "schema therapy"],
       bio: "MSc in Clinical Psychology from Christ University. Juhi identifies with the wounded healer — what she's carried personally doesn't sit separate from her work, it sharpens it. She draws from Transactional Analysis, Schema Therapy, Gestalt, ACT and Somatic approaches. Her therapy is like a road trip: destination agreed on, but detours are welcome. 3 in 8 slots are concessional — intentionally.",
       metaItems: ["15–20 slots/week", "English · Hindi · Kutchi", "online only"],
+      active: true
+    },
+    {
+      id: "pravalika-buddha",
+      name: "Pravalika Buddha",
+      pronouns: "she/they",
+      location: "Bangalore · online & offline",
+      fee: "₹900–1500",
+      feeUnit: "/ session",
+      feeNote: "sliding scale for students & trans folx",
+      days: "Wed · Thu · Fri · Sat · Sun",
+      daysNote: "23 slots/week",
+      avatarInitials: "PB",
+      avatarBg: "#E8F4D9",
+      avatarColor: "#2A5C0A",
+      imagePath: "pravalika-buddha.jpg",
+      tags: ["cPTSD", "queer folx", "neurodivergent", "grief", "dissociation", "anxiety", "decolonised lens"],
+      bio: "Anti-capitalist, neurodivergent, queer therapist from an OBC background. Pravalika identifies as Anti-caste and is a survivor of abuse with lived experience of CPTSD and chronic depression. MSc from IIPR. Her approach is relational and non-directive — she relies on forming deep relationships to create corrective experiences. She brings community, art and plants into her therapy room.",
+      metaItems: ["400+ hrs · 20 hrs group therapy", "Telugu · Hindi · English", "Online & offline · HSR Bangalore"],
       active: true
     },
     {
@@ -197,7 +227,7 @@ const CONTENT = {
       feeUnit: "/ session",
       feeNote: "₹800 for students & low income",
       days: "Mon · Tue · Wed",
-      daysNote: "3–4 sessions/day",
+      daysNote: "3–4 sessions/day · 45 min",
       avatarInitials: "V",
       avatarBg: "#EEEDFE",
       avatarColor: "#3C3489",
@@ -206,59 +236,11 @@ const CONTENT = {
       bio: "MSc in Applied Clinical Psychology, also counselling psychologist at a college. Takes an eclectic feminist approach rooted in inclusion — deep commitment to consent and confidentiality at every step. Cares about making care genuinely accessible: 45-minute sessions, sliding scale, honest about what she can and can't do. Loves science, music, nature, art, furniture, and animals.",
       metaItems: ["200+ hours", "English · Gujarati · Hindi", "Google Meet · 45 min"],
       active: true
-    },
-    {
-      id: "sindhu",
-      name: "Sindhu",
-      pronouns: "they/them",
-      location: "Pune · online & in-person",
-      fee: "₹1300–1600",
-      feeUnit: "/ session",
-      feeNote: "₹1850 in-person · ₹3000 abroad",
-      days: "Tue · Wed · Thu · Sat",
-      daysNote: "20 slots/week · 5/day",
-      avatarInitials: "S",
-      avatarBg: "#F0EDE4",
-      avatarColor: "#5C5035",
-      imagePath: "sindhu.jpg",
-      tags: ["complex trauma", "intimate partner violence", "grief", "anxiety", "depression", "self-harm", "anti-caste", "intersectional feminist"],
-      bio: "Sindhu (chosen name) is the founder of Pohonch — which began in February 2022 as their attempt to make ethical, quality mental health care accessible. They/them. NeuroQueer, intersectional feminist, anti-caste practitioner based in Pune. A complex trauma survivor living with chronic health issues, Sindhu brings 3200+ hours of counselling experience and draws from relational, trauma-focused, systemic, feminist, strength-based, narrative, and gestalt approaches. Offers online and in-person sessions.",
-      metaItems: ["3200+ hours · Masters Clinical Psychology, Mumbai University 2021", "English · Marathi · Hindi", "Online (Google Meet) + in-person Pune"],
-      active: true
-    },
-    {
-      id: "pravalika-buddha",
-      name: "Pravalika Buddha",
-      pronouns: "she/they",
-      location: "Bangalore · online & offline",
-      fee: "₹900–1500",
-      feeUnit: "/ session",
-      feeNote: "sliding scale for students & trans folx",
-      days: "Wed · Thu · Fri · Sat · Sun",
-      daysNote: "23 slots/week",
-      avatarInitials: "PB",
-      avatarBg: "#E8F4D9",
-      avatarColor: "#2A5C0A",
-      imagePath: "pravalika-buddha.jpg",
-      tags: ["cPTSD", "queer folx", "neurodivergent", "grief", "dissociation", "anxiety", "decolonised lens"],
-      bio: "Anti-capitalist, neurodivergent, queer therapist from an OBC background. Pravalika identifies as Anti-caste and is a survivor of abuse with lived experience of CPTSD and chronic depression. MSc from IIPR. Her approach is relational and non-directive — she relies on forming deep relationships to create corrective experiences. She brings community, art and plants into her therapy room.",
-      metaItems: ["400+ hrs · 20 hrs group therapy", "Telugu · Hindi · English", "Online & offline · HSR Bangalore"],
-      active: true
     }
   ],
 
   // ─── FOOTER ──────────────────────────────────────────────────
   footer: {
-    navLinks: [
-      { label: "about pohonch", href: "#about" },
-      { label: "our therapists", href: "#therapists" },
-      { label: "how it works", href: "#how" }
-    ],
-    connectLinks: [
-      { label: "instagram", href: "#" },         // ← replace with real Instagram URL
-      { label: "get in touch", href: "https://forms.gle/soFwpjkmvZtoqw766" },
-      { label: "privacy policy", href: "#" }     // ← replace with real privacy policy URL
-    ],
     crisisLine1: "iCall 9152987821",
     crisisLine2: "Vandrevala 1860-2662-345",
     copyrightYear: "2025"
@@ -267,4 +249,3 @@ const CONTENT = {
 };
 
 // ─── DO NOT EDIT BELOW THIS LINE ──────────────────────────────
-if (typeof module !== 'undefined') module.exports = CONTENT;
