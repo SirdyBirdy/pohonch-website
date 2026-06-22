@@ -91,9 +91,9 @@ const CONTENT = {
     founderCloser: "Not sure who to book with? Write to us and we'll point you somewhere. No waiting room, no script.",
     footerBlurb: "Reach out when you're ready. Even one line is enough. We'll take it from there.",
     footerCta: "Begin",
-    quoteText: "Healing isn't about becoming someone new. It's about finding the life that's already there, often in unlikely places.",
+    quoteText: "Our care is rooted in presence, like a quiet forest. Steady and calming.",
     quoteCite: "a working note, pinned to our wall",
-    cornerNotes: ["a good listener", "slow & steady", "full of warmth", "quietly brave", "grounded & clear", "still building", "holds space well"],
+    cornerNotes: ["breaks the rules", "slow & steady", "full of warmth", "quietly brave", "grounded & clear", "rhythm and rest", "matches the humane"],
     valuesCards: [
       { heading: "Life finds a way",     body: "We meet the parts of you that have been quietly resilient, even when you couldn't see it." },
       { heading: "Slow on purpose",      body: "No scripts, no rush. We move at whatever pace your nervous system can actually hold." },
