@@ -19,7 +19,7 @@ const CONTENT = {
 
   // ─── PROFILES PATH ───────────────────────────────────────────
   // PDFs live at profiles/firstname-lastname.pdf on GitHub
-  profilesPath: "profiles",
+  profilesPath: "Profiles",
 
   // ─── SOCIAL ──────────────────────────────────────────────────
   instagramUrl: "https://www.instagram.com/pohonch?igsh=bTFlZ214aGVqMTZl",
