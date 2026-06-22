@@ -26,7 +26,6 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* paper grain + ambient glow */
 body{background-image:
   radial-gradient(1200px 600px at 85% -10%,rgba(106,125,84,.18),transparent 60%),
   radial-gradient(900px 500px at -10% 30%,rgba(184,103,74,.10),transparent 60%),
@@ -39,14 +38,12 @@ a{color:inherit;text-decoration:none}
 .serif{font-family:"Fraunces",Georgia,serif;font-weight:340;letter-spacing:-.01em}
 .hand{font-family:"Caveat",cursive;color:var(--moss-d)}
 
-/* floating botanicals */
 .botanical{position:fixed;pointer-events:none;z-index:0}
 .float-slow{animation:floaty 9s ease-in-out infinite}
 .sway{animation:sway 8s ease-in-out infinite;transform-origin:bottom center}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(2deg)}}
 @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 
-/* ── NAV ── */
 nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;position:relative;z-index:5}
 .logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:400;font-size:22px;letter-spacing:-.02em;text-decoration:none}
 .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-s)}
@@ -55,7 +52,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0
 .nav-cta{font-size:14px;border:1px solid var(--ink);padding:10px 18px;border-radius:999px;text-decoration:none;background:var(--ink);color:var(--paper);display:inline-flex;align-items:center;gap:8px;transition:background .2s}
 .nav-cta:hover{background:var(--moss-d)}
 
-/* ── HERO ── */
 .hero{padding:48px 0 100px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
 h1{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(48px,7vw,100px);line-height:.96;letter-spacing:-.028em;margin:0;position:relative}
 h1 em{font-style:italic;color:var(--moss-d);font-variation-settings:"SOFT" 100}
@@ -66,22 +62,18 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .handnote{margin-top:44px;max-width:360px}
 .handnote .hand{font-size:21px;transform:rotate(-2deg);display:inline-block;line-height:1.4}
 
-/* hero right — contemplative illustration */
 .hero-art{position:relative;height:440px;width:100%;display:flex;align-items:center;justify-content:center}
 
-/* ── DIVIDER ── */
 .divider{display:flex;align-items:center;gap:18px;color:var(--moss);margin:80px 0 36px;position:relative}
 .div-label{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss-d);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
 .div-squiggle{flex:1;height:14px}
 
-/* ── ABOUT / NOTE ── */
 .note{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;position:relative}
 .note h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:0;letter-spacing:-.018em}
 .note p{font-size:16px;color:var(--ink-s);max-width:56ch;margin:0 0 16px}
 .note .aside{font-size:14px;color:var(--moss-d);background:rgba(106,125,84,.10);padding:14px 18px;border-radius:10px;margin-top:6px;display:flex;gap:12px;align-items:flex-start;line-height:1.5}
 .note .aside svg{flex-shrink:0;margin-top:2px}
 
-/* values */
 .values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:44px 0 0}
 .val{background:var(--paper-2);border:1px solid var(--rule);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .val:hover{transform:translateY(-3px);box-shadow:0 14px 40px -18px rgba(31,36,31,.2)}
@@ -90,7 +82,6 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .val p{margin:0;font-size:13px;color:var(--ink-s);line-height:1.5}
 .val::after{content:"";position:absolute;right:-28px;bottom:-28px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(106,125,84,.16),transparent 70%)}
 
-/* ── HOW ── */
 .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-radius:16px;overflow:hidden;margin-top:0}
 .how-step{background:var(--paper-2);padding:28px 24px}
 .step-n{font-family:"Fraunces",serif;font-size:36px;color:var(--rule);line-height:1;margin-bottom:16px;display:block}
@@ -98,7 +89,6 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .step-b{font-size:13px;color:var(--ink-s);line-height:1.75;margin:0}
 .how-cta{display:flex;justify-content:center;margin-top:36px}
 
-/* ── TEAM ── */
 .team-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:36px;flex-wrap:wrap}
 .team-head h2{font-family:"Fraunces",serif;font-weight:340;font-size:clamp(32px,4vw,48px);margin:0;letter-spacing:-.022em;line-height:1.05}
 .team-head h2 em{font-style:italic;color:var(--moss-d)}
@@ -131,13 +121,11 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .btn-moss{background:var(--moss-d);color:var(--paper);border-color:var(--moss-d)}
 .btn-moss:hover{background:var(--ink)}
 
-/* ── QUOTE BAND ── */
 .quote-band{margin:80px 0 0;padding:64px 50px;background:linear-gradient(135deg,var(--moss-d),#2d3826);color:var(--paper);border-radius:24px;position:relative;overflow:hidden}
 .quote-band .leaves-bg{position:absolute;inset:0;opacity:.18;pointer-events:none;width:100%;height:100%}
 .quote-band blockquote{font-family:"Fraunces",serif;font-style:italic;font-weight:320;font-size:clamp(24px,3.2vw,38px);line-height:1.25;margin:0;max-width:34ch;letter-spacing:-.015em}
 .quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
 
-/* ── FOUNDER ── */
 .founder-sec{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;margin:44px 0 0}
 .founder-art{aspect-ratio:4/5;border-radius:18px;background:
   radial-gradient(60% 40% at 40% 30%,rgba(255,255,255,.22),transparent 60%),
@@ -152,7 +140,6 @@ h1 .sketch-line{position:absolute;left:0;bottom:-10px;width:100%}
 .pull{font-family:"Fraunces",serif;font-style:italic;font-size:20px;line-height:1.38;color:var(--moss-d);padding-left:20px;margin:22px 0;position:relative}
 .pull::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--moss-b),var(--moss-d));border-radius:2px}
 
-/* ── FOOTER ── */
 footer{margin-top:100px;padding:64px 0 44px;position:relative}
 footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'><path d='M0,28 Q150,6 300,28 T600,28 T900,28 T1200,28' stroke='%23c9bfa6' stroke-width='1.2' fill='none'/><path d='M0,38 Q150,16 300,38 T600,38 T900,38 T1200,38' stroke='%23c9bfa6' stroke-width='1' fill='none' opacity='.5'/></svg>") center/100% 100% no-repeat}
@@ -166,7 +153,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 .colophon a{color:var(--moss-d);border-bottom:1px solid rgba(58,70,50,.3);padding-bottom:1px;text-transform:none;letter-spacing:0}
 .colophon a:hover{border-bottom-color:var(--moss-d)}
 
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero,.note,.founder-sec,.foot-grid{grid-template-columns:1fr;gap:36px}
   .team-grid{grid-template-columns:1fr}
@@ -189,7 +175,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 </head>
 <body>
 
-<!-- fixed botanicals -->
 <svg class="botanical float-slow" style="top:70px;right:3.5%;width:88px;height:88px" viewBox="0 0 100 100" fill="none">
   <path d="M50 95 V40" stroke="#6a7d54" stroke-width="1.4"/>
   <path d="M50 60 C30 55,20 40,18 25 C35 30,45 45,50 60Z" fill="#8aa067" opacity=".82"/>
@@ -211,7 +196,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 <div class="wrap">
 
-<!-- NAV -->
 <nav>
   <a href="#" class="logo" id="nav-logo">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a4632" stroke-width="1.5" stroke-linecap="round">
@@ -222,12 +206,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
     pohonch
   </a>
   <div class="nav-links" id="nav-links-inner"></div>
-  <a class="nav-cta" id="nav-cta" href="#">
-    Begin ↗
-  </a>
+  <a class="nav-cta" id="nav-cta" href="#"></a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <h1 id="hero-h1"></h1>
@@ -242,38 +223,25 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
     </div>
   </div>
 
-  <!-- Hero: contemplative night-garden illustration -->
   <div class="hero-art">
     <svg viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;max-height:440px">
-      <!-- sky wash -->
       <rect width="480" height="440" fill="#e8e2d4" rx="20"/>
       <radial-gradient id="moonGlow" cx="50%" cy="28%" r="38%">
         <stop offset="0%" stop-color="#f7f3e8" stop-opacity=".9"/>
         <stop offset="100%" stop-color="#e8e2d4" stop-opacity="0"/>
       </radial-gradient>
       <ellipse cx="240" cy="122" rx="170" ry="130" fill="url(#moonGlow)"/>
-
-      <!-- distant hills -->
       <path d="M-10 320 Q80 240,160 260 Q240 278,320 248 Q400 220,490 260 L490 440 L-10 440Z" fill="#c5bda8"/>
       <path d="M-10 350 Q60 290,140 310 Q220 328,300 304 Q380 282,490 305 L490 440 L-10 440Z" fill="#bab3a0"/>
-
-      <!-- ground -->
       <path d="M-10 390 Q120 370,240 378 Q360 386,490 368 L490 440 L-10 440Z" fill="#a8a090"/>
       <path d="M-10 410 Q120 398,240 404 Q360 410,490 400 L490 440 L-10 440Z" fill="#9a9484"/>
-
-      <!-- moon -->
       <circle cx="320" cy="90" r="34" fill="#f0ead8"/>
       <circle cx="320" cy="90" r="34" fill="none" stroke="#e0d8c8" stroke-width="1"/>
-      <!-- subtle moon texture -->
       <circle cx="312" cy="82" r="5" fill="#e8e0cc" opacity=".6"/>
       <circle cx="328" cy="100" r="3.5" fill="#e8e0cc" opacity=".5"/>
       <circle cx="308" cy="97" r="2.5" fill="#e8e0cc" opacity=".4"/>
-
-      <!-- moon glow ring -->
       <circle cx="320" cy="90" r="46" fill="none" stroke="#f0ead8" stroke-width="1" opacity=".35"/>
       <circle cx="320" cy="90" r="58" fill="none" stroke="#f0ead8" stroke-width=".6" opacity=".2"/>
-
-      <!-- stars -->
       <g opacity=".5">
         <circle cx="80"  cy="55"  r="1.2" fill="#8a8070"/>
         <circle cx="145" cy="38"  r="1"   fill="#8a8070"/>
@@ -285,19 +253,14 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
         <circle cx="110" cy="110" r="1"   fill="#8a8070"/>
         <circle cx="240" cy="50"  r=".8"  fill="#8a8070"/>
       </g>
-
-      <!-- tall grass, left -->
       <g stroke="#5a6b4a" stroke-linecap="round">
         <path d="M30 440 Q26 380,34 320 Q36 300,30 270" stroke-width="1.5"/>
         <path d="M22 440 Q24 390,18 340 Q16 310,22 280" stroke-width="1.2"/>
         <path d="M42 440 Q46 400,40 355 Q38 330,44 300" stroke-width="1"/>
-        <!-- grass leaves -->
         <path d="M30 340 C10 330,4 310,6 295 C22 300,30 320,30 340Z" fill="#6a7d54" stroke="none"/>
         <path d="M34 300 C52 294,60 276,58 260 C44 266,34 284,34 300Z" fill="#8aa067" stroke="none"/>
         <path d="M22 360 C8 352,2 338,4 324 C14 328,22 342,22 360Z" fill="#6a7d54" stroke="none"/>
       </g>
-
-      <!-- tall grass, right -->
       <g stroke="#5a6b4a" stroke-linecap="round">
         <path d="M445 440 Q448 378,440 318 Q438 296,445 264" stroke-width="1.5"/>
         <path d="M455 440 Q452 392,458 342 Q460 314,454 282" stroke-width="1.2"/>
@@ -305,23 +268,15 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
         <path d="M445 332 C460 324,468 306,466 290 C452 294,444 314,445 332Z" fill="#6a7d54" stroke="none"/>
         <path d="M440 294 C424 288,416 272,418 258 C430 262,440 278,440 294Z" fill="#8aa067" stroke="none"/>
       </g>
-
-      <!-- mid tree, left -->
       <path d="M110 440 V280" stroke="#3a4632" stroke-width="2" stroke-linecap="round"/>
       <path d="M110 360 C72 350,50 320,46 290 C78 290,104 316,110 360Z" fill="#4a5c38" opacity=".9"/>
       <path d="M110 320 C148 310,170 280,174 252 C144 254,112 276,110 320Z" fill="#5a6b48" opacity=".9"/>
       <path d="M110 285 C82 276,66 250,68 230 C88 234,106 258,110 285Z" fill="#4a5c38" opacity=".8"/>
-      <!-- delicate branch -->
       <path d="M110 310 Q92 298,80 304" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
       <path d="M110 350 Q128 340,138 346" stroke="#3a4632" stroke-width="1" fill="none" opacity=".6"/>
-
-      <!-- mid tree, right -->
       <path d="M370 440 V290" stroke="#3a4632" stroke-width="1.8" stroke-linecap="round"/>
       <path d="M370 370 C340 362,322 336,320 310 C346 312,366 336,370 370Z" fill="#4a5c38" opacity=".85"/>
       <path d="M370 330 C398 320,416 296,416 270 C392 274,372 298,370 330Z" fill="#5a6b48" opacity=".85"/>
-
-      <!-- small wildflowers, foreground -->
-      <!-- flower 1 -->
       <path d="M180 440 V408" stroke="#3a4632" stroke-width="1.4" stroke-linecap="round"/>
       <circle cx="180" cy="400" r="5" fill="#b8674a"/>
       <circle cx="174" cy="395" r="4" fill="#c79a4a"/>
@@ -329,10 +284,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
       <circle cx="174" cy="405" r="4" fill="#c79a4a"/>
       <circle cx="186" cy="405" r="4" fill="#c79a4a"/>
       <circle cx="180" cy="400" r="2.2" fill="#f1ece0"/>
-      <!-- tiny leaf -->
       <path d="M180 422 L172 418" stroke="#5a6b4a" stroke-width="1.2" stroke-linecap="round"/>
-
-      <!-- flower 2 -->
       <path d="M295 440 V414" stroke="#3a4632" stroke-width="1.2" stroke-linecap="round"/>
       <circle cx="295" cy="408" r="4" fill="#c79a4a"/>
       <circle cx="290" cy="403" r="3.5" fill="#b8674a"/>
@@ -341,16 +293,12 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
       <circle cx="300" cy="413" r="3.5" fill="#b8674a"/>
       <circle cx="295" cy="408" r="2" fill="#f1ece0"/>
       <path d="M295 424 L302 420" stroke="#5a6b4a" stroke-width="1.1" stroke-linecap="round"/>
-
-      <!-- moss patch -->
       <ellipse cx="240" cy="432" rx="38" ry="8" fill="#5a6b4a" opacity=".5"/>
       <circle cx="224" cy="428" r="4" fill="#8aa067" opacity=".8"/>
       <circle cx="240" cy="425" r="3.5" fill="#8aa067" opacity=".8"/>
       <circle cx="256" cy="428" r="4" fill="#6a7d54" opacity=".8"/>
       <circle cx="214" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
       <circle cx="266" cy="430" r="2.5" fill="#8aa067" opacity=".7"/>
-
-      <!-- firefly-like lights -->
       <circle cx="155" cy="300" r="2.5" fill="#c79a4a" opacity=".6"/>
       <circle cx="155" cy="300" r="5"   fill="#c79a4a" opacity=".15"/>
       <circle cx="340" cy="330" r="2"   fill="#c79a4a" opacity=".5"/>
@@ -361,7 +309,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   </div>
 </section>
 
-<!-- DIVIDER 01 -->
 <div class="divider">
   <span class="div-label">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
@@ -372,16 +319,13 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   </svg>
 </div>
 
-<!-- NOTE -->
 <section class="note" id="about">
   <h2 id="note-h2"></h2>
   <div id="note-right"></div>
 </section>
 
-<!-- VALUES -->
 <div class="values" id="values"></div>
 
-<!-- DIVIDER 02 - HOW -->
 <div class="divider">
   <span class="div-label">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
@@ -394,12 +338,11 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 <div class="how-steps" id="how-steps"></div>
 <div class="how-cta">
-  <a class="btn btn-p" id="how-cta-btn" href="#">Find your therapist
+  <a class="btn btn-p" id="how-cta-btn" href="#">
     <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
   </a>
 </div>
 
-<!-- DIVIDER 03 - TEAM -->
 <div class="divider" id="therapists">
   <span class="div-label">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
@@ -416,7 +359,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 </div>
 <div class="team-grid" id="team-grid"></div>
 
-<!-- QUOTE BAND -->
 <section class="quote-band">
   <svg class="leaves-bg" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none">
     <path d="M-50 250 Q200 180,400 230 T900 200 T1250 240" stroke="#f1ece0" stroke-width="1.2"/>
@@ -428,11 +370,10 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
     <circle cx="700" cy="170" r="4" fill="#f1ece0"/>
     <circle cx="980" cy="190" r="5" fill="#f1ece0"/>
   </svg>
-  <blockquote>"Healing isn't about becoming someone new. It's about finding the life that's already there — often, in unlikely places."</blockquote>
-  <cite>— a working note, pinned to our wall</cite>
+  <blockquote></blockquote>
+  <cite></cite>
 </section>
 
-<!-- DIVIDER 04 - FOUNDER -->
 <div class="divider" id="founder">
   <span class="div-label">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#6a7d54"/><circle cx="7" cy="7" r="6.5" stroke="#6a7d54" stroke-width=".8"/></svg>
@@ -462,21 +403,21 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   <div id="founder-text"></div>
 </section>
 
-<!-- FOOTER -->
 <footer id="contact">
   <div class="foot-grid" id="foot-grid"></div>
   <div class="colophon" id="colophon"></div>
 </footer>
 
-</div><!-- /wrap -->
+</div>
 <script src="content.js"></script>
 <script>
-const C = CONTENT, F = C.inquiryFormUrl;
+const C = CONTENT, F = C.inquiryFormUrl, UI = C.ui;
 
 /* NAV */
 document.getElementById('nav-links-inner').innerHTML =
   `<a href="#about">About</a><a href="#therapists">Therapists</a><a href="#founder">Founder</a><a href="#contact">Contact</a>`;
 document.getElementById('nav-cta').href = F;
+document.getElementById('nav-cta').innerHTML = UI.navCta + ' ↗';
 
 /* HERO */
 const H = C.hero;
@@ -508,20 +449,16 @@ document.getElementById('note-right').innerHTML = `
   </div>`;
 
 /* VALUES */
-const vals = [
-  {svg:`<path d="M18 32V14" stroke="#3a4632" stroke-width="1.5"/><path d="M18 22c-5-5-12-3-15-1 2 6 9 7 15 1z" fill="#6a7d54"/><path d="M18 18c5-5 12-3 15-1-2 6-9 7-15 1z" fill="#8aa067"/>`,
-   h:"Life finds a way",p:"We meet the parts of you that have already been quietly resilient."},
-  {svg:`<path d="M4 22 Q12 18,18 22 T32 22" stroke="#6a7d54" stroke-width="1.6" fill="none"/><path d="M4 26 Q12 22,18 26 T32 26" stroke="#8aa067" stroke-width="1.4" fill="none"/><path d="M4 18 Q12 14,18 18 T32 18" stroke="#6a7d54" stroke-width="1.2" fill="none" opacity=".7"/>`,
-   h:"Slow on purpose",p:"No scripts, no rush. We move at the pace your nervous system can hold."},
-  {svg:`<circle cx="18" cy="18" r="6" fill="#b8674a"/><circle cx="10" cy="12" r="4" fill="#c79a4a"/><circle cx="26" cy="12" r="4" fill="#c79a4a"/><circle cx="10" cy="24" r="4" fill="#c79a4a"/><circle cx="26" cy="24" r="4" fill="#c79a4a"/><circle cx="18" cy="18" r="2" fill="#f1ece0"/>`,
-   h:"Soft, not perfect",p:"You don't have to arrive polished. The messy parts come too."},
-  {svg:`<path d="M6 30 Q18 4,30 30" stroke="#3a4632" stroke-width="1.5" fill="none"/><circle cx="18" cy="12" r="3" fill="#8aa067"/><path d="M14 30 L14 22" stroke="#6a7d54" stroke-width="1"/><path d="M22 30 L22 22" stroke="#6a7d54" stroke-width="1"/>`,
-   h:"Roots, not just leaves",p:"We work with what's beneath, gently and without urgency."}
+const valSVGs = [
+  `<path d="M18 32V14" stroke="#3a4632" stroke-width="1.5"/><path d="M18 22c-5-5-12-3-15-1 2 6 9 7 15 1z" fill="#6a7d54"/><path d="M18 18c5-5 12-3 15-1-2 6-9 7-15 1z" fill="#8aa067"/>`,
+  `<path d="M4 22 Q12 18,18 22 T32 22" stroke="#6a7d54" stroke-width="1.6" fill="none"/><path d="M4 26 Q12 22,18 26 T32 26" stroke="#8aa067" stroke-width="1.4" fill="none"/><path d="M4 18 Q12 14,18 18 T32 18" stroke="#6a7d54" stroke-width="1.2" fill="none" opacity=".7"/>`,
+  `<circle cx="18" cy="18" r="6" fill="#b8674a"/><circle cx="10" cy="12" r="4" fill="#c79a4a"/><circle cx="26" cy="12" r="4" fill="#c79a4a"/><circle cx="10" cy="24" r="4" fill="#c79a4a"/><circle cx="26" cy="24" r="4" fill="#c79a4a"/><circle cx="18" cy="18" r="2" fill="#f1ece0"/>`,
+  `<path d="M6 30 Q18 4,30 30" stroke="#3a4632" stroke-width="1.5" fill="none"/><circle cx="18" cy="12" r="3" fill="#8aa067"/><path d="M14 30 L14 22" stroke="#6a7d54" stroke-width="1"/><path d="M22 30 L22 22" stroke="#6a7d54" stroke-width="1"/>`
 ];
-document.getElementById('values').innerHTML = vals.map(v=>`
+document.getElementById('values').innerHTML = UI.valuesCards.map((v,i)=>`
   <div class="val">
-    <svg class="ico" width="36" height="36" viewBox="0 0 36 36" fill="none">${v.svg}</svg>
-    <h4>${v.h}</h4><p>${v.p}</p>
+    <svg class="ico" width="36" height="36" viewBox="0 0 36 36" fill="none">${valSVGs[i]}</svg>
+    <h4>${v.heading}</h4><p>${v.body}</p>
   </div>`).join('');
 
 /* HOW */
@@ -532,7 +469,9 @@ document.getElementById('how-steps').innerHTML = HW.steps.map(s=>`
     <div class="step-t">${s.title}</div>
     <p class="step-b">${s.body}</p>
   </div>`).join('');
-document.getElementById('how-cta-btn').href = F;
+const howBtn = document.getElementById('how-cta-btn');
+howBtn.href = F;
+howBtn.innerHTML = UI.howCta + ` <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M8 4l3 3-3 3"/></svg>`;
 
 /* THERAPIST CARDS */
 const portraitGrads = [
@@ -544,7 +483,6 @@ const portraitGrads = [
   "linear-gradient(160deg,#a8b8a0,#6a7860)",
   "linear-gradient(160deg,#c4b8a4,#8a7c70)"
 ];
-const cornerNotes = ["a good listener","slow & steady","full of warmth","quietly brave","grounded & clear","still building","holds space well"];
 const leafDirs = [
   "M25 30 C10 28,4 16,4 4 C20 8,28 18,25 30Z",
   "M25 30 C40 28,46 16,46 4 C30 8,22 18,25 30Z",
@@ -561,7 +499,7 @@ C.therapists.filter(t=>t.active).forEach((t,i)=>{
     : `<div class="portrait-placeholder" style="background:${portraitGrads[i%portraitGrads.length]}">${t.avatarInitials}</div>`;
   grid.insertAdjacentHTML('beforeend',`
     <article class="card">
-      <span class="corner-note" style="${i%3===2?'color:var(--moss-d)':''}">${cornerNotes[i%cornerNotes.length]}</span>
+      <span class="corner-note" style="${i%3===2?'color:var(--moss-d)':''}">${UI.cornerNotes[i%UI.cornerNotes.length]}</span>
       <div class="portrait" style="background:${portraitGrads[i%portraitGrads.length]}">
         ${portraitInner}
         <div class="ring"></div>
@@ -586,16 +524,20 @@ C.therapists.filter(t=>t.active).forEach((t,i)=>{
     </article>`);
 });
 
+/* QUOTE BAND */
+document.querySelector('.quote-band blockquote').textContent = `"${UI.quoteText}"`;
+document.querySelector('.quote-band cite').textContent = `— ${UI.quoteCite}`;
+
 /* FOUNDER */
 const FO = AB.founder;
 document.getElementById('founder-text').innerHTML = `
   <h2>A note from <em>${FO.name},</em><br/>who started Pohonch.</h2>
   <p>${FO.bio}</p>
   <div class="pull">"I see relationship with nature, gentleness, resilience, playfulness, and growth in unlikely places. That's what I want this practice to feel like."</div>
-  <p>If you're not sure who to book with, write to us and we'll help you find the right fit. There's no waiting room here, and no script.</p>
+  <p>${UI.founderCloser}</p>
   <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">Get in touch ↗</a>
-    <a class="btn btn-g" href="#therapists">Meet the team</a>
+    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener">${UI.founderCtaPrimary} ↗</a>
+    <a class="btn btn-g" href="#therapists">${UI.founderCtaSecondary}</a>
   </div>`;
 
 /* FOOTER */
@@ -603,8 +545,8 @@ const FT = C.footer;
 document.getElementById('foot-grid').innerHTML = `
   <div>
     <h4>Help is available<br/>whenever you are ready for it.</h4>
-    <p>Reach out, even if all you have is a sentence. We'll take it from there.</p>
-    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener" style="margin-top:20px;display:inline-flex">Begin ↗</a>
+    <p>${UI.footerBlurb}</p>
+    <a class="btn btn-p" href="${F}" target="_blank" rel="noopener" style="margin-top:20px;display:inline-flex">${UI.footerCta} ↗</a>
     <svg style="margin-top:18px;display:block" width="130" height="36" viewBox="0 0 140 40" fill="none">
       <path d="M5 20 Q40 5,80 25 T130 18" stroke="#6a7d54" stroke-width="1.4" stroke-linecap="round"/>
       <path d="M125 13 L130 18 L125 23" stroke="#6a7d54" stroke-width="1.4" fill="none" stroke-linecap="round"/>
