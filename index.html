@@ -13,7 +13,6 @@
 <link rel="canonical" href="https://pohonchcares.com/"/>
 
 <!-- ─── OPEN GRAPH (Social Preview) ─────────────────────────── -->
-<!-- Replace social-preview.jpeg with your actual image (1200×630 px recommended) -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pohonchcares.com/"/>
 <meta property="og:title" content="pohonch — Care with Softness, Solidarity, Sovereignty"/>
@@ -32,7 +31,6 @@
 <meta name="twitter:image" content="https://pohonchcares.com/social-preview.jpeg"/>
 
 <!-- ─── FAVICON ───────────────────────────────────────────────── -->
-<!-- Drop favicon.png into your root folder — all sizes handled below -->
 <link rel="icon" type="image/png" href="favicon.png"/>
 <link rel="apple-touch-icon" href="favicon.png"/>
 
@@ -233,13 +231,129 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 .colophon a{color:var(--moss-d);border-bottom:1px solid rgba(58,70,50,.3);padding-bottom:1px;text-transform:none;letter-spacing:0}
 .colophon a:hover{border-bottom-color:var(--moss-d)}
 
-/* ─── MOBILE NAV MENU ─────────────────────────────────────── */
-.nav-mobile-toggle{display:none;background:none;border:none;padding:8px;cursor:pointer;color:var(--ink)}
-.nav-mobile-menu{display:none;position:fixed;inset:0;background:var(--paper);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:36px}
-.nav-mobile-menu.open{display:flex}
-.nav-mobile-menu a{font-family:"Fraunces",serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
-.nav-mobile-menu a:hover{color:var(--moss-d)}
-.nav-mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink);line-height:1}
+/* ─── FLOATING ISLAND NAV (mobile only) ──────────────────── */
+.floating-island-nav{display:none}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+
+  .floating-island-nav{
+    display:flex;
+    align-items:center;
+    position:fixed;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:200;
+    background:rgba(29,35,29,.92);
+    border-radius:999px;
+    padding:8px 8px 8px 18px;
+    box-shadow:0 8px 32px rgba(29,35,29,.32),0 1px 0 rgba(255,255,255,.07) inset;
+    border:1px solid rgba(201,191,166,.18);
+    white-space:nowrap;
+    cursor:pointer;
+    transition:box-shadow .25s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .floating-island-nav:hover{box-shadow:0 10px 40px rgba(29,35,29,.38),0 1px 0 rgba(255,255,255,.07) inset}
+
+  .island-label{
+    font-size:12px;
+    color:rgba(241,236,224,.72);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin-right:10px;
+    user-select:none;
+    font-family:"Inter Tight",sans-serif;
+  }
+
+  .island-btn{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:var(--moss);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    transition:background .22s;
+  }
+  .island-btn svg{transition:transform .3s cubic-bezier(.4,0,.2,1)}
+
+  .floating-island-nav.open .island-btn{background:var(--clay)}
+  .floating-island-nav.open .island-btn svg{transform:rotate(45deg)}
+
+  .island-menu-card{
+    position:fixed;
+    bottom:82px;
+    left:50%;
+    transform:translateX(-50%) translateY(14px);
+    width:min(248px,calc(100vw - 48px));
+    background:rgba(241,236,224,.92);
+    backdrop-filter:blur(28px);
+    -webkit-backdrop-filter:blur(28px);
+    border:1px solid rgba(201,191,166,.7);
+    border-radius:22px;
+    padding:8px;
+    box-shadow:0 20px 60px rgba(29,35,29,.22),0 1px 0 rgba(255,255,255,.6) inset;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1);
+    z-index:199;
+  }
+  .island-menu-card.open{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  .island-menu-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    border-radius:14px;
+    font-family:"Fraunces",serif;
+    font-size:19px;
+    font-weight:300;
+    color:var(--ink);
+    text-decoration:none;
+    letter-spacing:-.02em;
+    transition:background .15s;
+  }
+  .island-menu-item:hover,.island-menu-item:active{background:rgba(106,125,84,.13)}
+
+  .island-menu-item .item-dot{
+    width:5px;height:5px;border-radius:50%;
+    background:var(--moss);opacity:.45;flex-shrink:0;
+  }
+
+  .island-menu-divider{
+    height:1px;
+    background:var(--rule);
+    opacity:.6;
+    margin:4px 12px;
+  }
+
+  .island-menu-cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:13px 16px;
+    border-radius:14px;
+    font-family:"Inter Tight",sans-serif;
+    font-size:13.5px;
+    font-weight:500;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    letter-spacing:.015em;
+    transition:background .2s;
+    margin-top:2px;
+  }
+  .island-menu-cta:hover{background:var(--moss-d)}
+}
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:1024px){
@@ -262,9 +376,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   .quote-band{padding:44px 28px}
   .consult-strip{grid-template-columns:1fr;gap:24px;padding:32px 28px}
   .consult-right{text-align:left}
-  .nav-links{display:none}
-  .nav-mobile-toggle{display:block}
   .botanical{display:none}
+  footer{padding-bottom:100px}
 }
 
 @media(max-width:640px){
@@ -284,7 +397,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   .card-bio{font-size:13px}
   .corner-note{display:none}
   .foot-grid{grid-template-columns:1fr;gap:28px}
-  footer{margin-top:64px;padding:44px 0 32px}
+  footer{margin-top:64px;padding:44px 0 100px}
   .colophon{flex-direction:column;align-items:flex-start;gap:6px}
   .divider{margin:56px 0 28px}
   nav{padding:20px 0}
@@ -322,14 +435,23 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   <circle cx="40" cy="32" r="4" fill="#b8674a"/>
 </svg>
 
-<!-- ─── MOBILE NAV MENU ─────────────────────────────────────── -->
-<div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">✕</button>
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#therapists" onclick="closeMobileMenu()">Therapists</a>
-  <a href="#founder" onclick="closeMobileMenu()">Founder</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a class="nav-cta" href="https://forms.gle/soFwpjkmvZtoqw766" target="_blank" rel="noopener" style="margin-top:12px">Begin ↗</a>
+<!-- ─── FLOATING ISLAND NAV (mobile only) ─────────────────── -->
+<div class="island-menu-card" id="islandMenuCard" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a class="island-menu-item" href="#about" onclick="closeIsland()">About <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#therapists" onclick="closeIsland()">Therapists <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#founder" onclick="closeIsland()">Founder <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#contact" onclick="closeIsland()">Contact <span class="item-dot"></span></a>
+  <div class="island-menu-divider"></div>
+  <a class="island-menu-cta" id="island-menu-cta-btn" href="#">Begin ↗</a>
+</div>
+
+<div class="floating-island-nav" id="floatingIsland" role="button" aria-expanded="false" aria-controls="islandMenuCard" aria-label="Open navigation">
+  <span class="island-label">Menu</span>
+  <div class="island-btn" aria-hidden="true">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#f1ece0" stroke-width="1.8" stroke-linecap="round">
+      <path d="M2 7h10M7 2l5 5-5 5"/>
+    </svg>
+  </div>
 </div>
 
 <div class="wrap">
@@ -346,11 +468,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   <div class="nav-links" id="nav-links-inner"></div>
   <div style="display:flex;align-items:center;gap:12px">
     <a class="nav-cta" id="nav-cta" href="#"></a>
-    <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-        <path d="M3 6h16M3 11h16M3 16h16"/>
-      </svg>
-    </button>
   </div>
 </nav>
 
@@ -561,22 +678,35 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 <script>
 const C = CONTENT, F = C.inquiryFormUrl, UI = C.ui;
 
-/* ─── MOBILE NAV ──────────────────────────────────────────── */
-const mobileMenu = document.getElementById('nav-mobile-menu');
-const mobileToggle = document.getElementById('nav-mobile-toggle');
-const mobileClose = document.getElementById('nav-mobile-close');
-function openMobileMenu(){mobileMenu.classList.add('open');mobileToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
-function closeMobileMenu(){mobileMenu.classList.remove('open');mobileToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
-mobileToggle.addEventListener('click',openMobileMenu);
-mobileClose.addEventListener('click',closeMobileMenu);
-mobileMenu.addEventListener('click',e=>{if(e.target===mobileMenu)closeMobileMenu()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+/* ─── FLOATING ISLAND NAV ─────────────────────────────────── */
+const floatingIsland = document.getElementById('floatingIsland');
+const islandMenuCard = document.getElementById('islandMenuCard');
+let islandOpen = false;
+
+function toggleIsland(){
+  islandOpen = !islandOpen;
+  floatingIsland.classList.toggle('open', islandOpen);
+  floatingIsland.setAttribute('aria-expanded', String(islandOpen));
+  islandMenuCard.classList.toggle('open', islandOpen);
+}
+function closeIsland(){
+  islandOpen = false;
+  floatingIsland.classList.remove('open');
+  floatingIsland.setAttribute('aria-expanded','false');
+  islandMenuCard.classList.remove('open');
+}
+floatingIsland.addEventListener('click', toggleIsland);
+document.addEventListener('click', e => {
+  if(islandOpen && !floatingIsland.contains(e.target) && !islandMenuCard.contains(e.target)) closeIsland();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeIsland(); });
 
 /* ─── NAV ─────────────────────────────────────────────────── */
 document.getElementById('nav-links-inner').innerHTML =
   `<a href="#about">About</a><a href="#therapists">Therapists</a><a href="#founder">Founder</a><a href="#contact">Contact</a>`;
 document.getElementById('nav-cta').href = F;
 document.getElementById('nav-cta').innerHTML = UI.navCta + ' ↗';
+document.getElementById('island-menu-cta-btn').href = F;
 
 /* ─── HERO ────────────────────────────────────────────────── */
 const H = C.hero;
@@ -680,7 +810,6 @@ C.therapists.filter(t=>t.active).forEach((t,i)=>{
     ? `<img src="images/${t.imagePath}" alt="Portrait of ${t.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px" onerror="this.outerHTML='<div class=portrait-placeholder>${t.avatarInitials}</div>'">`
     : `<div class="portrait-placeholder" style="background:${portraitGrads[i%portraitGrads.length]};color:rgba(31,36,31,.5)">${t.avatarInitials}</div>`;
 
-  // Use profileUrl (Canva link) from content.js
   const profileLink = t.profileUrl || '#';
 
   grid.insertAdjacentHTML('beforeend',`
