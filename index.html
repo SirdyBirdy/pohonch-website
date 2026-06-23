@@ -233,7 +233,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 /* ─── FLOATING ISLAND NAV (mobile only) ──────────────────── */
 .floating-island-nav{display:none}
-.island-menu-card{display:none}
+.island-menu-card{visibility:hidden;opacity:0;pointer-events:none}
 
 @media(max-width:900px){
   .nav-links{display:none}
@@ -298,12 +298,14 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
     border-radius:22px;
     padding:8px;
     box-shadow:0 20px 60px rgba(29,35,29,.22),0 1px 0 rgba(255,255,255,.6) inset;
+    visibility:hidden;
     opacity:0;
     pointer-events:none;
-    transition:opacity .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1);
+    transition:opacity .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1),visibility .25s;
     z-index:199;
   }
   .island-menu-card.open{
+    visibility:visible;
     opacity:1;
     pointer-events:auto;
     transform:translateX(-50%) translateY(0);
@@ -659,7 +661,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 </div><!-- .wrap -->
 
 <!-- ─── FLOATING ISLAND NAV (mobile only) ─────────────────── -->
-<div class="island-menu-card" id="islandMenuCard" style="display:none" role="dialog" aria-modal="true" aria-label="Navigation">
+<div class="island-menu-card" id="islandMenuCard" role="dialog" aria-modal="true" aria-label="Navigation">
   <a class="island-menu-item" href="#about" onclick="closeIsland()">About <span class="item-dot"></span></a>
   <a class="island-menu-item" href="#therapists" onclick="closeIsland()">Therapists <span class="item-dot"></span></a>
   <a class="island-menu-item" href="#founder" onclick="closeIsland()">Founder <span class="item-dot"></span></a>
@@ -693,12 +695,14 @@ function toggleIsland(){
   islandOpen = !islandOpen;
   floatingIsland.classList.toggle('open', islandOpen);
   floatingIsland.setAttribute('aria-expanded', String(islandOpen));
+  islandMenuCard.style.display = islandOpen ? 'block' : 'none';
   islandMenuCard.classList.toggle('open', islandOpen);
 }
 function closeIsland(){
   islandOpen = false;
   floatingIsland.classList.remove('open');
   floatingIsland.setAttribute('aria-expanded','false');
+  islandMenuCard.style.display = 'none';
   islandMenuCard.classList.remove('open');
 }
 floatingIsland.addEventListener('click', toggleIsland);
