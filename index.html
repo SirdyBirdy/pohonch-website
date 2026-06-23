@@ -233,6 +233,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 /* ─── FLOATING ISLAND NAV (mobile only) ──────────────────── */
 .floating-island-nav{display:none}
+.island-menu-card{display:none}
 
 @media(max-width:900px){
   .nav-links{display:none}
@@ -284,6 +285,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
   .floating-island-nav.open .island-btn svg{transform:rotate(45deg)}
 
   .island-menu-card{
+    display:block;
     position:fixed;
     bottom:82px;
     left:50%;
@@ -436,24 +438,6 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 </svg>
 
 <!-- ─── FLOATING ISLAND NAV (mobile only) ─────────────────── -->
-<div class="island-menu-card" id="islandMenuCard" role="dialog" aria-modal="true" aria-label="Navigation">
-  <a class="island-menu-item" href="#about" onclick="closeIsland()">About <span class="item-dot"></span></a>
-  <a class="island-menu-item" href="#therapists" onclick="closeIsland()">Therapists <span class="item-dot"></span></a>
-  <a class="island-menu-item" href="#founder" onclick="closeIsland()">Founder <span class="item-dot"></span></a>
-  <a class="island-menu-item" href="#contact" onclick="closeIsland()">Contact <span class="item-dot"></span></a>
-  <div class="island-menu-divider"></div>
-  <a class="island-menu-cta" id="island-menu-cta-btn" href="#">Begin ↗</a>
-</div>
-
-<div class="floating-island-nav" id="floatingIsland" role="button" aria-expanded="false" aria-controls="islandMenuCard" aria-label="Open navigation">
-  <span class="island-label">Menu</span>
-  <div class="island-btn" aria-hidden="true">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#f1ece0" stroke-width="1.8" stroke-linecap="round">
-      <path d="M2 7h10M7 2l5 5-5 5"/>
-    </svg>
-  </div>
-</div>
-
 <div class="wrap">
 
 <nav>
@@ -674,6 +658,24 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:56px;
 
 </div><!-- .wrap -->
 
+<!-- ─── FLOATING ISLAND NAV (mobile only) ─────────────────── -->
+<div class="island-menu-card" id="islandMenuCard" style="display:none" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a class="island-menu-item" href="#about" onclick="closeIsland()">About <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#therapists" onclick="closeIsland()">Therapists <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#founder" onclick="closeIsland()">Founder <span class="item-dot"></span></a>
+  <a class="island-menu-item" href="#contact" onclick="closeIsland()">Contact <span class="item-dot"></span></a>
+  <div class="island-menu-divider"></div>
+  <a class="island-menu-cta" id="island-menu-cta-btn" href="#">Begin ↗</a>
+</div>
+<div class="floating-island-nav" id="floatingIsland" style="display:none" role="button" aria-expanded="false" aria-controls="islandMenuCard" aria-label="Open navigation">
+  <span class="island-label">Menu</span>
+  <div class="island-btn" aria-hidden="true">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#f1ece0" stroke-width="1.8" stroke-linecap="round">
+      <path d="M2 7h10M7 2l5 5-5 5"/>
+    </svg>
+  </div>
+</div>
+
 <script src="content.js"></script>
 <script>
 const C = CONTENT, F = C.inquiryFormUrl, UI = C.ui;
@@ -682,6 +684,10 @@ const C = CONTENT, F = C.inquiryFormUrl, UI = C.ui;
 const floatingIsland = document.getElementById('floatingIsland');
 const islandMenuCard = document.getElementById('islandMenuCard');
 let islandOpen = false;
+// Only reveal on mobile — inline style:none prevents any desktop flash
+if(window.innerWidth <= 900){
+  floatingIsland.style.display = '';
+}
 
 function toggleIsland(){
   islandOpen = !islandOpen;
